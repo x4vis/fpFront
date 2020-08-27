@@ -1,0 +1,13 @@
+@import './variables';
+
+@function getTextSize($size) {
+    @return map-get($map-text-size, $size)
+};
+
+@function getTextWeight($weight) {
+    @return map-get($map-text-weight, $weight)
+};
+
+@function getColor($color) {
+    @return map-get($map-colors, $color)
+};

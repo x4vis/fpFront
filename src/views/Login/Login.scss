@@ -1,0 +1,18 @@
+@import '../../styles/functions.scss';
+
+body {
+    background-color: getColor("gray-lighter");
+}
+
+.container {
+    height: 100vh;
+
+    &-login {
+        background-color: white;
+        max-width: 45rem;
+        margin: 0 auto;
+        border-radius: 1.5rem;
+        box-shadow: 0 3.3rem 4.9rem -2.6rem rgba(40, 40, 40, 0.75);
+        padding-bottom: 4rem;
+    }
+}
