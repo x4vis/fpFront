@@ -1,6 +1,6 @@
 {
-  "short_name": "SICFP",
-  "name": "Sistema Inventario Contable Ferreteria Presitas",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
