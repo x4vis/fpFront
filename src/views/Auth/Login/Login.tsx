@@ -1,7 +1,6 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd';
 import { minLenght, required, type_email } from "../../../helpers/ValidationsForm";
-import { LockOutlined } from '@ant-design/icons';
 
 import { Link } from "react-router-dom";
 
@@ -16,7 +15,7 @@ function Login() {
     }
 
     return (
-        <div className="container d-flex justify-content-center align-items-center">
+        <div className="container d-flex justify-content-center align-items-center animated fadeInLeft">
             <div className="row container-login">
                 <div className="col-12 d-flex justify-content-center">
                     <picture>
@@ -26,13 +25,19 @@ function Login() {
                     </picture>
                 </div>
                 <div className="col-12">
-                    <Form form={form} name="login" layout="vertical">
+                    <Form form={form} 
+                          name="login" 
+                          layout="vertical" 
+                          size="large" 
+                          onFinish={iniciarSesion}>
                         <Form.Item className="mw-text"
                                    name="correo"
                                    label="Correo"
                                    hasFeedback
                                    rules={[ type_email(), required('usuario')]}>
-                            <Input placeholder="Ingresa tu correo" prefix={<i className="fa fa-at"></i>} />
+                            <Input className="border-r" 
+                                   placeholder="Ingresa tu correo" 
+                                   prefix={<i className="fa fa-at"></i>} />
                         </Form.Item>
 
                         <Form.Item className="mw-text mt-3"
@@ -40,7 +45,9 @@ function Login() {
                                    label="Contraseña"
                                    hasFeedback
                                    rules={[minLenght(8), required('contraseña')]}>
-                            <Input.Password placeholder="Ingresa tu contraseña" prefix={<LockOutlined />} />
+                            <Input.Password className="border-r" 
+                                            placeholder="Ingresa tu contraseña" 
+                                            prefix={<i className="fa fa-lock"></i>} />
                         </Form.Item>
 
                         <div className="row align-items-center flex-column-reverse flex-sm-row">
@@ -48,12 +55,11 @@ function Login() {
                                 <Link to="/recuperar-contrasena">¿Olvidaste tu contraseña?</Link>
                             </div>
                             <div className="col-12 col-sm-6">
-                            <Form.Item className="mt-5">
-                                <Button className="fullWidth"
+                            <Form.Item className="mt-3 mt-sm-5">
+                                <Button className="fullWidth border-r"
                                         type="primary"
                                         htmlType="submit"
-                                        size="large"
-                                        onClick={iniciarSesion}>
+                                        size="large">
                                     <p className="bw-text">
                                         <i className="fa fa-sign-in mr-3"></i>
                                         Iniciar Sesión

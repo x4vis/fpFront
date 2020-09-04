@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 const Login = lazy(() => import('./views/Auth/Login/Login'));
 const RecuperarPassword = lazy(() => import('./views/Auth/RecuperarPassword/RecuperarPassword'));
+const RestaurarPassword = lazy(() => import('./views/Auth/RestaurarPassword/RestaurarPassword'));
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Redirect exact from='/' to='/login' />
           <Route path="/login" component={Login} />
           <Route path="/recuperar-contrasena" component={RecuperarPassword} />
+          <Route path="/restaurar-contrasena/:token" component={RestaurarPassword} />
         </Switch>
       </Suspense>
     </Router>

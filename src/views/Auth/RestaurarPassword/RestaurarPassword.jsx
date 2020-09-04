@@ -1,20 +1,20 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd';
-import { required, type_email } from "../../../helpers/ValidationsForm";
+import { minLenght, required } from "../../../helpers/ValidationsForm";
 
 import { Link } from "react-router-dom";
 
-import "./RecuperarPassword.scss";
+import "./RestaurarPassword.scss";
 
-function RecuperarPassword() {
+function RestaurarPassword() {
 
     const [form] = Form.useForm();
 
-    const enviarCorreo = () => {
-        
+    const restaurarPass = () => {
+        console.log('entra')
     }
 
-    return (
+    return(
         <div className="container d-flex justify-content-center align-items-center animated fadeInRight">
             <div className="row container-login">
                 <div className="col-12 d-flex justify-content-center">
@@ -26,18 +26,28 @@ function RecuperarPassword() {
                 </div>
                 <div className="col-12">
                     <Form form={form} 
-                          name="login" 
-                          layout="vertical" 
+                          name="resturar" 
+                          layout="vertical"
                           size="large" 
-                          onFinish={enviarCorreo}>
+                          onFinish={restaurarPass}>
                         <Form.Item className="mw-text"
-                                   name="correo"
-                                   label="Correo"
+                                   name="contrasena"
+                                   label="Contraseña"
                                    hasFeedback
-                                   rules={[ type_email(), required('usuario')]}>
-                            <Input className="border-r"
-                                   placeholder="Ingresa tu correo" 
-                                   prefix={<i className="fa fa-at"></i>} />
+                                   rules={[minLenght(8), required('contraseña')]}>
+                            <Input.Password className="border-r" 
+                                            placeholder="Ingresa tu contraseña" 
+                                            prefix={<i className="fa fa-lock"></i>} />
+                        </Form.Item>
+
+                        <Form.Item className="mw-text"
+                                   name="contrasena-confirm"
+                                   label="Confirmar contraseña"
+                                   hasFeedback
+                                   rules={[minLenght(8), required('confirmar contraseña')]}>
+                            <Input.Password className="border-r" 
+                                            placeholder="Confirma tu contraseña" 
+                                            prefix={<i className="fa fa-lock"></i>} />
                         </Form.Item>
 
                         <div className="row align-items-center flex-column-reverse flex-sm-row">
@@ -55,7 +65,7 @@ function RecuperarPassword() {
                                         size="large">
                                     <p className="bw-text">
                                         <i className="fa fa-paper-plane-o mr-3"></i>
-                                        Enviar correo
+                                        Guardar
                                     </p>
                                 </Button>
                             </Form.Item>  
@@ -68,4 +78,4 @@ function RecuperarPassword() {
     )
 }
 
-export default RecuperarPassword
+export default RestaurarPassword
