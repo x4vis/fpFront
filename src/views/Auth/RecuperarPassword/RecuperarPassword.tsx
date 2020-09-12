@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import "./RecuperarPassword.scss";
 
-function RecuperarPassword() {
+const RecuperarPassword = () => {
 
     const [form] = Form.useForm();
 
@@ -68,4 +68,4 @@ function RecuperarPassword() {
     )
 }
 
-export default RecuperarPassword
+export default RecuperarPassword;

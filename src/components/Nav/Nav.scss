@@ -1,0 +1,40 @@
+@import '../../styles/functions.scss';
+
+.layout {
+    min-height: 100vh;
+
+    .sider {
+        overflow: 'auto';
+        height: '100vh';
+        position: 'fixed';
+        left: 0;
+
+        .menu {
+            height: 100%;
+            border-right: 0;
+            background-color: getColor('blue');
+        }
+    }
+
+    .header {
+        position: fixed;
+        width: 100%;
+        padding: 0;
+        background-color: getColor('blue');
+
+        .trigger {
+            max-height: 100%;
+            margin-left: 2rem;
+
+            i {
+                color: white;
+            }
+        }
+    }
+
+    .content {
+        margin: 6rem 0 1rem 0;
+        padding: 2.4rem 2.4rem 1rem 2.4rem;
+        min-height: 280;
+    }
+}

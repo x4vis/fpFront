@@ -1,5 +1,6 @@
 @import './styles/functions.scss';
 @import './styles/animations.scss';
+@import './styles/ant-design-custom.scss';
 
 //GENERALES
 html {
@@ -38,6 +39,10 @@ code {
 }
 
 button {
+  border: none;
+  background-color: transparent;
+  outline: none !important;
+
   &:focus {
       outline: none;
   }
@@ -94,6 +99,10 @@ button {
 
 .blue {
   color: getColor("blue");
+}
+
+.blue-light {
+  color: getColor("blue-light");
 }
 
 .gray {

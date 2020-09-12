@@ -1,0 +1,32 @@
+@import './styles/functions.scss';
+
+li {
+    color: white;
+
+    &:hover {
+        color: white;
+    }    
+}
+
+.ant-menu-submenu-selected {
+    color: white !important;
+    font-weight: bold;
+    background-color: getColor('blue-light') !important;
+}
+
+.ant-menu-item-active, .ant-menu-item, .anticon {
+    color: white !important;
+
+    span > a {
+        color: white !important;
+    }
+
+    &:hover {
+        color: getColor('dark') !important;
+        font-weight: bold;
+    }
+}
+
+.ant-menu-sub.ant-menu-inline  {
+    background-color: getColor('blue-light') !important;
+}

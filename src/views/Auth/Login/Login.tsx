@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import "./Login.scss";
 
-function Login() {
+const Login = () => {
 
     const [form] = Form.useForm();
 
@@ -75,4 +75,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Login;
