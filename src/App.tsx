@@ -16,9 +16,9 @@ function App() {
         <Switch>
           <Redirect exact from='/' to='/login' />
           {/* AUTH */}
-          <Route path="/login" component={Login} />
-          <Route path="/recuperar-contrasena" component={RecuperarPassword} />
-          <Route path="/restaurar-contrasena/:token" component={RestaurarPassword} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/recuperar-contrasena" component={RecuperarPassword} />
+          <Route exact path="/restaurar-contrasena/:token" component={RestaurarPassword} />
 
           {/* ADMIN */}
           <Route path="/admin" component={Nav} />

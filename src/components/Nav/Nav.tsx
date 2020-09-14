@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import { environment } from '../../environments/environment';
 
-import Admin from '../../routes/Admin'
-
-import { Link } from "react-router-dom";
+import { MenuItems } from '../../views/MenuItems';
+import Admin from '../../routes/Admin';
 
 import { Layout, Menu } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
 
 import "./Nav.scss";
 
@@ -13,8 +12,9 @@ const Nav = () => {
 
     const [collapsed, setCollapsed] = useState<boolean>(false);
 
-    const { SubMenu: SubMenu } = Menu;
+    const { SubMenu } = Menu;
     const { Header, Content, Sider, Footer } = Layout;
+    const { project: { fullName } } = environment;
     const year = new Date().getFullYear();
 
     const toggle = (): void => {
@@ -30,41 +30,28 @@ const Nav = () => {
                    className="sider" >
                 <div className="logo" />
                 <Menu mode="inline"
-                      defaultSelectedKeys={['1']}
                       className="menu"
                       theme="dark" >
                     
-                    <SubMenu key="sub1" 
-                            icon={<UserOutlined />} 
-                            title="subnav 1"
-                            className="hover-menu">
-                        
-                        <Menu.Item key="1">option1</Menu.Item>
-                        <Menu.Item key="2">option2</Menu.Item>
-                        <Menu.Item key="3">option3</Menu.Item>
-                        <Menu.Item key="4">option4</Menu.Item>
-                    </SubMenu>
-                    <SubMenu key="sub2" 
-                            icon={<UserOutlined />} 
-                            title="subnav 2"
-                            className="hover-menu">
-                        <Menu.Item key="5">option5</Menu.Item>
-                        <Menu.Item key="6">option6</Menu.Item>
-                        <Menu.Item key="7">option7</Menu.Item>
-                        <Menu.Item key="8">option8</Menu.Item>
-                    </SubMenu>
-
-                    <Menu.Item key="9" icon={<UserOutlined />}>
-                        <Link to="/admin/crear-usuario">
-                            {collapsed ? '' : 'Crear usuario'}
-                        </Link>
-                    </Menu.Item>
-
-                    <Menu.Item key="10" icon={<UserOutlined />}>
-                        <Link to="/admin/editar-usuario">
-                            {collapsed ? '' : 'Editar usuario'}
-                        </Link>
-                    </Menu.Item>
+                    {MenuItems.map((menu) => (
+                        menu.canExpand ? 
+                            <SubMenu key={`sub${menu.key}`}
+                                     icon={<menu.icon />}
+                                     title={menu.submenu?.subtitulo}
+                                     className="hover-menu">
+                                {menu.submenu?.menu?.map((submenu) => (
+                                    <Menu.Item key={submenu.key}
+                                               icon={<submenu.icon />}>
+                                        {submenu.titulo}
+                                    </Menu.Item>
+                                ))}
+                            </SubMenu>
+                            :
+                            <Menu.Item key={menu.key}
+                                       icon={<menu.icon />}>
+                                {menu.titulo}
+                            </Menu.Item>
+                    ))};
                 </Menu>
             </Sider>
             
@@ -81,7 +68,7 @@ const Nav = () => {
                 </Content>
 
                 <Footer className="text-center bw-text tiny-text">
-                    Materiales Presitas ©{year}
+                    {fullName} ©{year}
                 </Footer>
             </Layout>
         </Layout>

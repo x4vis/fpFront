@@ -9,8 +9,8 @@ const Admin = () => {
     <Router>
         <Suspense fallback={ <h1>Loading...</h1> }>
             <Switch>
-                <Route path="/admin/crear-usuario" component={CrearUsuario} />
-                <Route path="/admin/editar-usuario" component={EditarUsuario} />
+                <Route exact path="/admin/crear-usuario" component={CrearUsuario} />
+                <Route exact path="/admin/editar-usuario" component={EditarUsuario} />
             </Switch>
         </Suspense>
     </Router>
