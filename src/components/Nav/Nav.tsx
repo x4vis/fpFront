@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { environment } from '../../environments/environment';
-
-import { MenuItems } from '../../views/MenuItems';
-import Admin from '../../routes/Admin';
-
+import { Link } from "react-router-dom";
 import { Layout, Menu } from 'antd';
+import { MenuItems } from '../../views/MenuItems';
+import AdminRoutes from '../../routes/AdminRoutes';
 
 import "./Nav.scss";
 
@@ -20,6 +19,21 @@ const Nav = () => {
     const toggle = (): void => {
         setCollapsed(!collapsed);
     }
+
+    const handleResize = useCallback(event => {
+        let inner_width = window.innerWidth;
+        typeof(event) === 'number' ? inner_width = event : inner_width = event.target.innerWidth;
+        inner_width > 992 ? setCollapsed(false) : setCollapsed(true);
+    }, []); 
+
+    useEffect(() => {
+        let inner_width = window.innerWidth;
+        handleResize(inner_width);
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, [handleResize])
 
     return (
         <Layout className="layout">
@@ -37,12 +51,13 @@ const Nav = () => {
                         menu.canExpand ? 
                             <SubMenu key={`sub${menu.key}`}
                                      icon={<menu.icon />}
-                                     title={menu.submenu?.subtitulo}
+                                     title={menu.titulo}
                                      className="hover-menu">
-                                {menu.submenu?.menu?.map((submenu) => (
+                                {menu.submenu?.map((submenu) => (
                                     <Menu.Item key={submenu.key}
                                                icon={<submenu.icon />}>
                                         {submenu.titulo}
+                                        <Link to={submenu.ruta} />
                                     </Menu.Item>
                                 ))}
                             </SubMenu>
@@ -50,8 +65,9 @@ const Nav = () => {
                             <Menu.Item key={menu.key}
                                        icon={<menu.icon />}>
                                 {menu.titulo}
+                                <Link to={menu.ruta} />
                             </Menu.Item>
-                    ))};
+                    ))}
                 </Menu>
             </Sider>
             
@@ -64,7 +80,7 @@ const Nav = () => {
                 </Header>
 
                 <Content id="content" className="site-layout-background content">
-                    <Admin />
+                    <AdminRoutes />
                 </Content>
 
                 <Footer className="text-center bw-text tiny-text">

@@ -12,7 +12,7 @@ const Nav = lazy(() => import('./components/Nav/Nav'));
 function App() {
   return (
     <Router>
-      <Suspense fallback={ <h1>Loading...</h1> }>
+      <Suspense fallback={ '' }>
         <Switch>
           <Redirect exact from='/' to='/login' />
           {/* AUTH */}

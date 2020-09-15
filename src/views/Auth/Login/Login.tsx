@@ -34,7 +34,7 @@ const Login = () => {
                                    name="correo"
                                    label="Correo"
                                    hasFeedback
-                                   rules={[ type_email(), required('usuario')]}>
+                                   rules={[ type_email(), required('correo')]}>
                             <Input className="border-r" 
                                    placeholder="Ingresa tu correo" 
                                    prefix={<i className="fa fa-at"></i>} />

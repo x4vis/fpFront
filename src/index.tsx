@@ -5,10 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 //STYLESHEETS
-import './index.scss';
-import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
+import 'antd/dist/antd.css';
+import './index.scss';
 
 
 ReactDOM.render(

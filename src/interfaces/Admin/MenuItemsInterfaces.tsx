@@ -4,10 +4,5 @@ export interface MenuItemsInterface {
     icon?: any,
     canExpand?: boolean,
     key?: string,
-    submenu?: SubMenuItemsInterface;
-}
-
-export interface SubMenuItemsInterface {
-    subtitulo?: string,
-    menu?: Array<MenuItemsInterface> 
+    submenu?: Array<MenuItemsInterface>;
 }

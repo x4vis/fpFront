@@ -8,13 +8,13 @@ li {
     }    
 }
 
-.ant-menu-submenu-selected {
+.ant-menu-submenu-selected, .ant-menu-item-selected {
     color: white !important;
     font-weight: bold;
     background-color: getColor('blue-light') !important;
 }
 
-.ant-menu-item-active, .ant-menu-item, .anticon {
+.ant-menu-item-active, .ant-menu-item {
     color: white !important;
 
     span > a {
@@ -29,4 +29,16 @@ li {
 
 .ant-menu-sub.ant-menu-inline  {
     background-color: getColor('blue-light') !important;
+}
+
+.ant-layout-sider {
+    background-color: getColor('blue') !important;
+}
+
+.ant-form-vertical .ant-form-item-label {
+    padding: 0 !important;
+}
+
+.ant-select-selector {
+    border-radius: 1rem !important;
 }

@@ -1,4 +1,4 @@
-export function minLenght(min_number: number): Object {
+export function minLenght(min_number: number): object {
     const minLenght_rule = {
         min: min_number,
         message: `Es necesario ingresar mínimo ${min_number} caracteres`
@@ -7,16 +7,16 @@ export function minLenght(min_number: number): Object {
     return minLenght_rule;
 }
 
-export function maxLenght(max_number: number): Object {
+export function maxLenght(max_number: number): object {
     const maxLenght_rule = {
-        required: max_number,
+        max: max_number,
         message: `Es necesario ingresar máximo ${max_number} caracteres`
     };
 
     return maxLenght_rule;
 }
 
-export function required(campo: string): Object {
+export function required(campo: string): object {
     const required_rule = {
         required: true,
         message: `El campo ${campo} es requerido`
@@ -25,15 +25,20 @@ export function required(campo: string): Object {
     return required_rule;
 }
 
-export function type_email(): Object {
+export function type_email(): object {
     const email_rule = {
         type: 'email',
-        message: `El correo no es valido`
+        message: 'El correo no es valido'
     }
 
     return email_rule;
 }
 
-export function Validate() {
+export function pattern(pattern: any): object {
+    const pattern_rule = {
+        pattern,
+        message: "Formato incorrecto"
+    }
 
+    return pattern_rule;
 }
