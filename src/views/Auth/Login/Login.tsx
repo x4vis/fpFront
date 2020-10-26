@@ -1,14 +1,14 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd';
 import { minLenght, required, type_email } from "../../../helpers/ValidationsForm";
+import Logo from "../../../assets/Logo.png";
+import Logo_small from "../../../assets/imgs-small/Logo_small.png";
 
 import { Link } from "react-router-dom";
 
 import "./Login.scss";
 
 const Login = () => {
-    const lksdklf
-
     const [form] = Form.useForm();
 
     const iniciarSesion = () => {
@@ -20,9 +20,9 @@ const Login = () => {
             <div className="row container-login">
                 <div className="col-12 d-flex justify-content-center">
                     <picture>
-                        <source media="(min-width:500px)" srcSet={require('../../../assets/Logo.png')} />
-                        <source media="(min-width:320px)" srcSet={require('../../../assets/imgs-small/Logo_small.png')} />
-                        <img className="img-fluid mx-auto" src={require('../../../assets/Logo.png')} alt="Logo empresa" />
+                        <source media="(min-width:500px)" srcSet={Logo} />
+                        <source media="(min-width:320px)" srcSet={Logo_small} />
+                        <img className="img-fluid mx-auto" src={Logo} alt="Logo empresa" />
                     </picture>
                 </div>
                 <div className="col-12">
