@@ -54,18 +54,22 @@ const Nav = () => {
                                      title={menu.titulo}
                                      className="hover-menu">
                                 {menu.submenu?.map((submenu) => (
-                                    <Menu.Item key={submenu.key}
+                                    <Menu.Item className="d-flex align-items-center" 
+                                               key={submenu.key}
                                                icon={<submenu.icon />}>
-                                        {submenu.titulo}
-                                        <Link to={submenu.ruta} />
+                                        <Link to={submenu.ruta}>
+                                            {submenu.titulo}
+                                        </Link>
                                     </Menu.Item>
                                 ))}
                             </SubMenu>
                             :
-                            <Menu.Item key={menu.key}
+                            <Menu.Item className="d-flex align-items-center" 
+                                       key={menu.key}
                                        icon={<menu.icon />}>
-                                {menu.titulo}
-                                <Link to={menu.ruta} />
+                                <Link to={menu.ruta}>
+                                    {menu.titulo}
+                                </Link>
                             </Menu.Item>
                     ))}
                 </Menu>

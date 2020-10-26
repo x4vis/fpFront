@@ -3,13 +3,20 @@ import { AppleOutlined } from '@ant-design/icons';
 
 export const MenuItems: Array<MenuItemsInterface> = [
     {
-        ruta: '/admin/crear-usuario',
-        titulo: 'Crear usuario',
+        ruta: '/admin/usuarios',
+        titulo: 'Usuarios',
         icon: AppleOutlined,
         canExpand: false,
         key: "1"
     },
     {
+        ruta: '/admin/productos',
+        titulo: 'Productos',
+        icon: AppleOutlined,
+        canExpand: false,
+        key: "2"
+    },
+    /* {
         ruta: '/admin/editar-usuario',
         titulo: 'Editar usuario',
         icon: AppleOutlined,
@@ -31,5 +38,5 @@ export const MenuItems: Array<MenuItemsInterface> = [
                     canExpand: false,
                 }
         ]
-    },
+    }, */
 ]

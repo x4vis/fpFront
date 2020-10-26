@@ -2,7 +2,9 @@ import React from 'react'
 
 const EditarUsuario = () => {
     return (
-        <h1>desde editar usuarios</h1>
+        <div className="container-fluid">
+            <h1>Editar Usuario</h1>
+        </div>
     )
 }
  
