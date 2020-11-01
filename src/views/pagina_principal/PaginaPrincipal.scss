@@ -1,11 +1,22 @@
+.container {
+    margin-top: 4rem;
+}
+
 .main-card {
     height: 22rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 .5rem .3rem rgba(0,0,0,0.2);
+    transition: transform ease .3s;
 
     p {
         margin-bottom: 0;
         letter-spacing: .1rem;
+    }
+
+    &:hover {
+        transform: translateY(-.6rem);
+        box-shadow: 0 .3rem .5rem .3rem rgba(0,0,0,0.2);
     }
 }
