@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 const Login = lazy(() => import('./views/Auth/Login/Login'));
 const RecuperarPassword = lazy(() => import('./views/Auth/RecuperarPassword/RecuperarPassword'));
 const RestaurarPassword = lazy(() => import('./views/Auth/RestaurarPassword/RestaurarPassword'));
-const PaginaPrincipal = lazy(() => import('./views/pagina_principal/PaginaPrincipal'))
+const PaginaPrincipal = lazy(() => import('./views/PaginaPrincipal/PaginaPrincipal'))
 
 /* ADMIN */
 const Nav = lazy(() => import('./components/Nav/Nav'));

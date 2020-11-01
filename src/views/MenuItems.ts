@@ -1,119 +1,134 @@
 import { MenuItemsInterface } from "../interfaces/Admin/MenuItemsInterfaces";
-import { AppleOutlined } from '@ant-design/icons';
+import { AppleOutlined, BookOutlined, UserOutlined, FundProjectionScreenOutlined, BankOutlined } from '@ant-design/icons';
 
 export const MenuItems: Array<MenuItemsInterface> = [
     {
-        titulo: 'Personal',
-        icon: AppleOutlined,
+        titulo: 'Estadísticas',
+        icon: FundProjectionScreenOutlined,
         canExpand: true,
         key: "1",
         submenu: [
             {
+                ruta: '/admin/ventas',
+                titulo: 'Ventas',
+                icon: FundProjectionScreenOutlined,
+                canExpand: false,
+                key: "2",
+            },
+        ]
+    },
+    {
+        titulo: 'Personal',
+        icon: UserOutlined,
+        canExpand: true,
+        key: "3",
+        submenu: [
+            {
                 ruta: '/admin/usuarios',
                 titulo: 'Usuarios',
-                icon: AppleOutlined,
+                icon: UserOutlined,
                 canExpand: false,
-                key: "2"
+                key: "4"
             },
             {
                 ruta: '/admin/clientes',
                 titulo: 'Clientes',
-                icon: AppleOutlined,
+                icon: UserOutlined,
                 canExpand: false,
-                key: "3"
+                key: "5"
             },
             {
                 ruta: '/admin/proveedores',
                 titulo: 'Proveedores',
-                icon: AppleOutlined,
+                icon: UserOutlined,
                 canExpand: false,
-                key: "4"
+                key: "6"
             },
         ]
     },
     {
         titulo: 'Catalogos',
-        icon: AppleOutlined,
+        icon: BookOutlined,
         canExpand: true,
-        key: "5",
+        key: "7",
         submenu: [
             {
                 ruta: '/admin/categorias',
                 titulo: 'Categorias',
-                icon: AppleOutlined,
-                canExpand: false,
-                key: "6"
-            },
-            {
-                ruta: '/admin/subcategorias',
-                titulo: 'SubCategorias',
-                icon: AppleOutlined,
-                canExpand: false,
-                key: "7"
-            },
-            {
-                ruta: '/admin/unidades-medida',
-                titulo: 'Uni. de Medida',
-                icon: AppleOutlined,
+                icon: BookOutlined,
                 canExpand: false,
                 key: "8"
             },
             {
-                ruta: '/admin/descuentos',
-                titulo: 'Descuentos',
-                icon: AppleOutlined,
+                ruta: '/admin/subcategorias',
+                titulo: 'SubCategorias',
+                icon: BookOutlined,
                 canExpand: false,
                 key: "9"
             },
             {
-                ruta: '/admin/productos',
-                titulo: 'Productos',
-                icon: AppleOutlined,
+                ruta: '/admin/unidades-medida',
+                titulo: 'Uni. de Medida',
+                icon: BookOutlined,
                 canExpand: false,
                 key: "10"
+            },
+            {
+                ruta: '/admin/descuentos',
+                titulo: 'Descuentos',
+                icon: BookOutlined,
+                canExpand: false,
+                key: "11"
+            },
+            {
+                ruta: '/admin/productos',
+                titulo: 'Productos',
+                icon: BookOutlined,
+                canExpand: false,
+                key: "12"
             },
         ]
     },
     {
         titulo: 'Negocio',
-        icon: AppleOutlined,
+        icon: BankOutlined,
         canExpand: true,
-        key: "11",
+        key: "13",
         submenu: [
             {
                 ruta: '/admin/ventas',
                 titulo: 'Ventas',
-                icon: AppleOutlined,
-                canExpand: false,
-                key: "12"
-            },
-            {
-                ruta: '/admin/pedidos',
-                titulo: 'Pedidos',
-                icon: AppleOutlined,
-                canExpand: false,
-                key: "13"
-            },
-            {
-                ruta: '/admin/compras',
-                titulo: 'Compras',
-                icon: AppleOutlined,
+                icon: BankOutlined,
                 canExpand: false,
                 key: "14"
             },
             {
-                ruta: '/admin/gasto-producto',
-                titulo: 'Gasto Producto',
-                icon: AppleOutlined,
+                ruta: '/admin/pedidos',
+                titulo: 'Pedidos',
+                icon: BankOutlined,
                 canExpand: false,
                 key: "15"
             },
             {
-                ruta: '/admin/devouluciones',
-                titulo: 'Devoluciones',
-                icon: AppleOutlined,
+                ruta: '/admin/compras',
+                titulo: 'Compras',
+                icon: BankOutlined,
                 canExpand: false,
                 key: "16"
+            },
+            {
+                ruta: '/admin/gasto-producto',
+                titulo: 'Gasto Producto',
+                icon: BankOutlined,
+                canExpand: false,
+                key: "17"
+            },
+            {
+                ruta: '/admin/devouluciones',
+                titulo: 'Devoluciones',
+                icon: BankOutlined,
+                canExpand: false,
+                key: "18"
             },
         ]
     },
