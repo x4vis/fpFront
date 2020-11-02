@@ -4,5 +4,5 @@ export const environment = {
         name: 'Materiales Presitas',
         fullName: 'Materiales Presitas',
     },
-    api: ''
+    api: 'https://localhost:5001/api'
 }

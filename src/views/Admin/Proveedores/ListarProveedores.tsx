@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { ProveedoresType } from "../../../interfaces/Admin/ProveedoresType";
+import ProveedoresService from "../../../services/Admin/ProveedoresService";
+
 import { Button } from 'antd';
 import { withRouter } from 'react-router-dom'
 
 const ListarProveedores = (props) => {
 
     const { history } = props;
+    const [ proveedores, setProveedores ] = useState<Array<ProveedoresType>>([]);
+
+    //llamado a la API
+    useEffect(() => {
+        
+        const obtenerProveedores = async () => {
+            ProveedoresService.getProveedores()
+            .then(provs => {  
+                setProveedores(provs.data);
+
+                console.log('proveedores', proveedores);
+            });
+        }
+
+        obtenerProveedores();
+
+    }, [])
 
     return (
         <div className="container-fluid">
