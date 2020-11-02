@@ -2,20 +2,20 @@ import React from 'react'
 import { Button } from 'antd';
 import { withRouter } from 'react-router-dom'
 
-const ListarUsuarios = (props) => {
+const ListarProveedores = (props) => {
 
     const { history } = props;
- 
+
     return (
         <div className="container-fluid">
-            <h1 className="blue bw-text biggest-text">Usuarios</h1>
+            <h1 className="blue bw-text biggest-text">Proveedores</h1>
 
             <div className="row">
                 <div className="col-6">
                     <Button className="blue-back white fullWidth"
                             type="primary"
                             size="large"
-                            onClick={() => { history.push('/admin/usuarios/crear') }} >
+                            onClick={() => { history.push('/admin/proveedores/crear') }} >
                         Crear
                     </Button>
                 </div>
@@ -28,4 +28,4 @@ const ListarUsuarios = (props) => {
     )
 }
  
-export default withRouter(ListarUsuarios);
+export default withRouter(ListarProveedores);

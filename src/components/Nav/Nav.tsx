@@ -84,6 +84,7 @@ const Nav = () => {
                 </Header>
 
                 <Content id="content" className="site-layout-background content">
+                    {/* Rutas de routes/AdminRoutes */}
                     <AdminRoutes />
                 </Content>
 

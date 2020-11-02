@@ -1,5 +1,6 @@
 import React, { Fragment, lazy } from 'react';
 import { Route } from "react-router-dom";
+import ProveedoresRoutes from './ProveedoresRoutes';
 
 const ListarUsuarios = lazy(() => import('../views/Admin/Usuarios/ListarUsuarios'));
 const CrearUsuario = lazy(() => import('../views/Admin/Usuarios/CrearUsuario'));
@@ -10,8 +11,11 @@ const AdminRoutes = () => {
       <Fragment>
         {/* USUARIOS */}
         <Route exact path="/admin/usuarios" component={ListarUsuarios} />
-        <Route exact path="/admin/crear-usuario" component={CrearUsuario} />
-        <Route exact path="/admin/editar-usuario" component={EditarUsuario} />
+        <Route exact path="/admin/usuarios/crear" component={CrearUsuario} />
+        <Route exact path="/admin/usuarios/editar" component={EditarUsuario} />
+
+        {/* PROVEEDORES */}
+        <ProveedoresRoutes />
 
         {/* CATEGORIAS */}
 

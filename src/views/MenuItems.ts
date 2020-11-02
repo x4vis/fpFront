@@ -1,5 +1,5 @@
 import { MenuItemsInterface } from "../interfaces/Admin/MenuItemsInterfaces";
-import { AppleOutlined, BookOutlined, UserOutlined, FundProjectionScreenOutlined, BankOutlined } from '@ant-design/icons';
+import { BookOutlined, UserOutlined, FundProjectionScreenOutlined, BankOutlined } from '@ant-design/icons';
 
 export const MenuItems: Array<MenuItemsInterface> = [
     {

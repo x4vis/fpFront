@@ -113,6 +113,10 @@ button {
   color: getColor("gray-lighter");
 }
 
+.danger {
+  color: getColor("danger");
+}
+
 .border-r {
   border-radius: 1rem !important;
 }
