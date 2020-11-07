@@ -4,8 +4,8 @@ const URL = "/proveedores";
 
 const ProveedoresService =  {
 
-    getProveedores: async (paginated: boolean, page: number, search: string): Promise<AxiosResponse> => {
-        return await API.get(`${URL}/listado`, { params: { paginated, page, search } });
+    getProveedores: async (paginated: boolean, page?: number, search?: string, resourceQty?: number): Promise<AxiosResponse> => {
+        return await API.get(`${URL}/listado`, { params: { paginated, page, search, resourceQty } });
     },
 
     getProveedor: async (id: number): Promise<AxiosResponse> => {

@@ -1,4 +1,5 @@
 export interface ProveedoresType {
+    id?: number,
     tipoPersona?: string,
     nombre?: string,
     nombreComercial?: string,

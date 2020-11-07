@@ -6,7 +6,7 @@ import Logo_small from "../../../assets/imgs-small/Logo_small.png";
 
 import { Link } from "react-router-dom";
 
-import "./RestaurarPassword.scss";
+import classes from "./RestaurarPassword.module.scss";
 
 const RestaurarPassword = () => {
 
@@ -17,8 +17,8 @@ const RestaurarPassword = () => {
     }
 
     return(
-        <div className="container d-flex justify-content-center align-items-center animated fadeInRight">
-            <div className="row container-login">
+        <div className={`${classes["container"]} container d-flex justify-content-center align-items-center animated fadeInRight`}>
+            <div className={`row ${classes["container-restaurar"]}`}>
                 <div className="col-12 d-flex justify-content-center">
                     <picture>
                         <source media="(min-width:500px)" srcSet={Logo} />

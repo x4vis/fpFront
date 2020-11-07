@@ -1,12 +1,11 @@
 import React, { Fragment, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Form, Input, Button, Select } from 'antd';
 import { maxLenght, required, type_email, pattern } from "../../../helpers/ValidationsForm";
 import { PatternText, PatternNumber, PatternPersonaFisica, PatternPersonaMoral } from "../../../helpers/Patterns";
-import { withRouter } from 'react-router-dom'
 
-const CrearProveedor = (props) => {
+const CrearProveedor = () => {
 
-    const { history } = props;
     const [form] = Form.useForm();
     const [ tipoPersona, setTipoPersona ] = useState<string>('');
 
@@ -179,15 +178,16 @@ const CrearProveedor = (props) => {
                     <div className="row align-items-center flex-column-reverse flex-sm-row mt-4">
                         <div className="col-12 col-sm-4">
                             <Form.Item className="mt-3 mt-sm-5">
-                                <Button className="fullWidth border-r"
-                                        htmlType="button"
-                                        size="large"
-                                        onClick={() => history.push('/admin/proveedores')}>
-                                    <p className="bw-text blue">
-                                        <i className="fa fa-arrow-left mr-3"></i>
-                                        Regresar a listado
-                                    </p>
-                                </Button>
+                                <Link to={'/admin/proveedores'}>
+                                    <Button className="fullWidth border-r"
+                                            htmlType="button"
+                                            size="large">
+                                        <p className="bw-text blue">
+                                            <i className="fa fa-arrow-left mr-3"></i>
+                                            Regresar a listado
+                                        </p>
+                                    </Button>
+                                </Link>
                             </Form.Item>  
                         </div>
                         <div className="col-12 col-sm-4">
@@ -214,4 +214,4 @@ const CrearProveedor = (props) => {
     )
 }
 
-export default withRouter(CrearProveedor);
+export default CrearProveedor;

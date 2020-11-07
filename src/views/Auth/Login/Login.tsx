@@ -6,7 +6,7 @@ import Logo_small from "../../../assets/imgs-small/Logo_small.png";
 
 import { Link } from "react-router-dom";
 
-import "./Login.scss";
+import classes from "./Login.module.scss";
 
 const Login = () => {
     const [form] = Form.useForm();
@@ -16,8 +16,8 @@ const Login = () => {
     }
 
     return (
-        <div className="container d-flex justify-content-center align-items-center animated fadeInLeft">
-            <div className="row container-login">
+        <div className={`${classes["container"]} container d-flex justify-content-center align-items-center animated fadeInLeft`}>
+            <div className={`row ${classes["container-login"]}`}>
                 <div className="col-12 d-flex justify-content-center">
                     <picture>
                         <source media="(min-width:500px)" srcSet={Logo} />

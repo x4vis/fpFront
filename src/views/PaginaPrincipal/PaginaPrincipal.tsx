@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import { withRouter } from "react-router-dom";
+import classes from "./PaginaPrincipal.module.scss";
 
-import "./PaginaPrincipal.scss";
-
-const PaginaPrincipal = (props) => {
+const PaginaPrincipal = () => {
 
     const { Header } = Layout;
-    const { history } = props;
 
     const LogOut =  () => {
 
@@ -31,17 +29,19 @@ const PaginaPrincipal = (props) => {
                 </Header>
             </Layout>
 
-            <div className="container">
-                <div className="row">
-                    <div className="col-12 col-md-6">
-                        <button className="fullWidth" onClick={() => history.push('/admin')}>
-                            <div className="main-card">
-                                <p className="bw-text small-text blue">ADMINISTRACIÓN</p>
-                            </div>
-                        </button>
+            <div className={classes["container-fluid"]}>
+                <div className="row justify-content-center">
+                    <div className="col-12 col-sm-10 col-md-6 offset-md-0 col-lg-5">
+                        <Link to={'/admin'}>
+                            <button className="fullWidth">
+                                <div className={`main-card ${classes["main-card"]}`}>
+                                    <p className="bw-text small-text blue">ADMINISTRACIÓN</p>
+                                </div>
+                            </button>
+                        </Link>
                     </div>
-                    <div className="col-12 col-md-6 mt-5 mt-md-0">
-                        <div className="main-card">
+                    <div className="col-12 col-sm-10 col-md-6 offset-md-0 col-lg-5 mt-5 mt-md-0">
+                        <div className={`main-card ${classes["main-card"]}`}>
                             <p className="bw-text small-text blue">PUNTO DE VENTA</p>
                         </div>
                     </div>
@@ -51,4 +51,4 @@ const PaginaPrincipal = (props) => {
     )
 }
 
-export default withRouter(PaginaPrincipal);
+export default PaginaPrincipal;
