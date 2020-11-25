@@ -6,13 +6,13 @@ import Logo_small from "../../../assets/imgs-small/Logo_small.png";
 
 import { Link } from "react-router-dom";
 
-import classes from "./RestaurarPassword.module.scss";
+import classes from "./PasswordRestore.module.scss";
 
-const RestaurarPassword = () => {
+const PasswordRestore = () => {
 
     const [form] = Form.useForm();
 
-    const restaurarPass = () => {
+    const pswRestore = () => {
         console.log('entra')
     }
 
@@ -31,9 +31,9 @@ const RestaurarPassword = () => {
                           name="resturar" 
                           layout="vertical"
                           size="large" 
-                          onFinish={restaurarPass}>
+                          onFinish={pswRestore}>
                         <Form.Item className="mw-text"
-                                   name="contrasena"
+                                   name="psw"
                                    label="Contraseña"
                                    hasFeedback
                                    rules={[minLenght(8), required('contraseña')]}>
@@ -43,7 +43,7 @@ const RestaurarPassword = () => {
                         </Form.Item>
 
                         <Form.Item className="mw-text"
-                                   name="contrasena-confirm"
+                                   name="pswConfirm"
                                    label="Confirmar contraseña"
                                    hasFeedback
                                    rules={[minLenght(8), required('confirmar contraseña')]}>
@@ -80,4 +80,4 @@ const RestaurarPassword = () => {
     )
 }
 
-export default RestaurarPassword;
+export default PasswordRestore;

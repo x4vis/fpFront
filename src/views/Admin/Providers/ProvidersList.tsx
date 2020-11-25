@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
 import { Button, Input } from 'antd';
-import BtnCrearRecurso from "../../../components/BtnCrearRecurso";
-import BtnBorrarBusqueda from "../../../components/BtnBorrarBusqueda"
-import TablaProveedores from "./TablaProveedores";
+import CreateResourceBtn from "../../../components/CreateResourceBtn";
+import DeleteSearchBtn from "../../../components/DeleteSearchBtn"
+import ProvidersTable from "./ProvidersTable";
+import { Resources } from "../../../enums/Resources";
 
-const ListarProveedores = () => {
+const ProvidersList = () => {
 
     const { Search } = Input;
 
     //set states
-    const [ busqueda, setBusqueda ] = useState<string>("");
-    const [ valueSearch, setvalueSearch ] = useState<string>("");
-    const [ actualizar, setActualizar ] = useState<boolean>(false);
+    const [ search, setSearch ] = useState<string>("");
+    const [ valueSearch, setValueSearch ] = useState<string>("");
+    const [ update, setUpdate ] = useState<boolean>(false);
 
     const handleSearch = (value) => {
-        setBusqueda(value);
+        setSearch(value);
     }
 
     return (
@@ -24,13 +25,13 @@ const ListarProveedores = () => {
             <div className="main-card mt-4 p-5">
                 <div className="row">
                     <div className="col-6 col-md-3 col-lg-2">
-                        <BtnCrearRecurso recurso="proveedores" />
+                        <CreateResourceBtn resource={Resources.Providers} />
                     </div>
                     <div className="col-6 col-md-3 col-lg-2">
                         <Button type="link"
                                 size="large"
                                 className="text-center fullWidth p-0 text-break"
-                                onClick={() => setActualizar(!actualizar)}>
+                                onClick={() => setUpdate(!update)}>
                             <i className="fa fa-refresh mr-2"></i>
                             Actualizar
                         </Button>
@@ -39,9 +40,9 @@ const ListarProveedores = () => {
                     <div className="col-12 col-md-6 col-lg-8 mt-4 mt-md-0">
                         <Search placeholder="buscar proveedor por nombre"
                                 size="large"
-                                suffix={<BtnBorrarBusqueda setBusqueda={setBusqueda} setvalueSearch={setvalueSearch}/>}
+                                suffix={<DeleteSearchBtn setSearch={setSearch} setvalueSearch={setValueSearch}/>}
                                 value={valueSearch}
-                                onChange={e => setvalueSearch(e.target.value)}
+                                onChange={e => setValueSearch(e.target.value)}
                                 onSearch={handleSearch} 
                                 enterButton />
                     </div>
@@ -49,7 +50,7 @@ const ListarProveedores = () => {
 
                 <div className="row">
                     <div className="col-12">
-                        <TablaProveedores busqueda={busqueda} actualizar={actualizar}/>
+                        <ProvidersTable search={search} update={update}/>
                     </div>
                 </div>
             </div>
@@ -57,4 +58,4 @@ const ListarProveedores = () => {
     )
 }
  
-export default ListarProveedores;
+export default ProvidersList;

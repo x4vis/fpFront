@@ -3,14 +3,14 @@ import { BookOutlined, UserOutlined, FundProjectionScreenOutlined, BankOutlined 
 
 export const MenuItems: Array<MenuItemsType> = [
     {
-        titulo: 'Estadísticas',
+        title: 'Estadísticas',
         icon: FundProjectionScreenOutlined,
         canExpand: true,
         key: "1",
         submenu: [
             {
-                ruta: '/admin/ventas',
-                titulo: 'Ventas',
+                path: '/admin/ventas',
+                title: 'Ventas',
                 icon: FundProjectionScreenOutlined,
                 canExpand: false,
                 key: "2",
@@ -18,28 +18,28 @@ export const MenuItems: Array<MenuItemsType> = [
         ]
     },
     {
-        titulo: 'Personal',
+        title: 'Personal',
         icon: UserOutlined,
         canExpand: true,
         key: "3",
         submenu: [
             {
-                ruta: '/admin/usuarios',
-                titulo: 'Usuarios',
+                path: '/admin/usuarios',
+                title: 'Usuarios',
                 icon: UserOutlined,
                 canExpand: false,
                 key: "4"
             },
             {
-                ruta: '/admin/clientes',
-                titulo: 'Clientes',
+                path: '/admin/clientes',
+                title: 'Clientes',
                 icon: UserOutlined,
                 canExpand: false,
                 key: "5"
             },
             {
-                ruta: '/admin/proveedores',
-                titulo: 'Proveedores',
+                path: '/admin/proveedores',
+                title: 'Proveedores',
                 icon: UserOutlined,
                 canExpand: false,
                 key: "6"
@@ -47,42 +47,42 @@ export const MenuItems: Array<MenuItemsType> = [
         ]
     },
     {
-        titulo: 'Catalogos',
+        title: 'Catalogos',
         icon: BookOutlined,
         canExpand: true,
         key: "7",
         submenu: [
             {
-                ruta: '/admin/categorias',
-                titulo: 'Categorias',
+                path: '/admin/categorias',
+                title: 'Categorias',
                 icon: BookOutlined,
                 canExpand: false,
                 key: "8"
             },
             {
-                ruta: '/admin/subcategorias',
-                titulo: 'SubCategorias',
+                path: '/admin/subcategorias',
+                title: 'SubCategorias',
                 icon: BookOutlined,
                 canExpand: false,
                 key: "9"
             },
             {
-                ruta: '/admin/unidades-medida',
-                titulo: 'Uni. de Medida',
+                path: '/admin/unidades-medida',
+                title: 'Uni. de Medida',
                 icon: BookOutlined,
                 canExpand: false,
                 key: "10"
             },
             {
-                ruta: '/admin/descuentos',
-                titulo: 'Descuentos',
+                path: '/admin/descuentos',
+                title: 'Descuentos',
                 icon: BookOutlined,
                 canExpand: false,
                 key: "11"
             },
             {
-                ruta: '/admin/productos',
-                titulo: 'Productos',
+                path: '/admin/productos',
+                title: 'Productos',
                 icon: BookOutlined,
                 canExpand: false,
                 key: "12"
@@ -90,42 +90,42 @@ export const MenuItems: Array<MenuItemsType> = [
         ]
     },
     {
-        titulo: 'Negocio',
+        title: 'Negocio',
         icon: BankOutlined,
         canExpand: true,
         key: "13",
         submenu: [
             {
-                ruta: '/admin/ventas',
-                titulo: 'Ventas',
+                path: '/admin/ventas',
+                title: 'Ventas',
                 icon: BankOutlined,
                 canExpand: false,
                 key: "14"
             },
             {
-                ruta: '/admin/pedidos',
-                titulo: 'Pedidos',
+                path: '/admin/pedidos',
+                title: 'Pedidos',
                 icon: BankOutlined,
                 canExpand: false,
                 key: "15"
             },
             {
-                ruta: '/admin/compras',
-                titulo: 'Compras',
+                path: '/admin/compras',
+                title: 'Compras',
                 icon: BankOutlined,
                 canExpand: false,
                 key: "16"
             },
             {
-                ruta: '/admin/gasto-producto',
-                titulo: 'Gasto Producto',
+                path: '/admin/gasto-producto',
+                title: 'Gasto Producto',
                 icon: BankOutlined,
                 canExpand: false,
                 key: "17"
             },
             {
-                ruta: '/admin/devouluciones',
-                titulo: 'Devoluciones',
+                path: '/admin/devouluciones',
+                title: 'Devoluciones',
                 icon: BankOutlined,
                 canExpand: false,
                 key: "18"

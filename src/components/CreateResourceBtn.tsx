@@ -4,8 +4,8 @@ import { Button } from 'antd';
 
 import Proptypes from "prop-types";
 
-const BtnCrearRecurso = ({ recurso }) => (
-    <Link to={`/admin/${recurso}/crear`}>
+const CreateResourceBtn = ({ resource }) => (
+    <Link to={`/admin/${resource}/crear`}>
         <Button className="blue-back white fullWidth"
                 type="primary"
                 size="large"
@@ -15,8 +15,8 @@ const BtnCrearRecurso = ({ recurso }) => (
     </Link>
 )
 
-BtnCrearRecurso.propTypes = {
-    recurso: Proptypes.string.isRequired
+CreateResourceBtn.propTypes = {
+    resource: Proptypes.string.isRequired
 }
 
-export default BtnCrearRecurso;
+export default CreateResourceBtn;

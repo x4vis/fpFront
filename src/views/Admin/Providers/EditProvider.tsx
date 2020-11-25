@@ -1,9 +1,9 @@
 import React from 'react'
 
-const EditarProveedor = () => {
+const EditProvider = () => {
     return (
         <div></div>
     )
 }
 
-export default EditarProveedor;
+export default EditProvider;

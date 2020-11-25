@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import classes from "./PaginaPrincipal.module.scss";
+import classes from "./MainPage.module.scss";
 
-const PaginaPrincipal = () => {
+const MainPage = () => {
 
     const { Header } = Layout;
 
@@ -12,7 +12,7 @@ const PaginaPrincipal = () => {
     }
 
     return (
-        <Fragment>
+        <>
             <Layout>
                 <Header>
                     <Menu className="d-flex justify-content-end" 
@@ -29,7 +29,7 @@ const PaginaPrincipal = () => {
                 </Header>
             </Layout>
 
-            <div className={classes["container-fluid"]}>
+            <div className={`container-fluid ${classes["container-fluid"]}`}>
                 <div className="row justify-content-center">
                     <div className="col-12 col-sm-10 col-md-6 offset-md-0 col-lg-5">
                         <Link to={'/admin'}>
@@ -47,8 +47,8 @@ const PaginaPrincipal = () => {
                     </div>
                 </div>
             </div>
-        </Fragment>
+        </>
     )
 }
 
-export default PaginaPrincipal;
+export default MainPage;

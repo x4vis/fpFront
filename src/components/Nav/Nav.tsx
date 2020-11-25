@@ -3,7 +3,7 @@ import { environment } from '../../environments/environment';
 import { Link } from "react-router-dom";
 import { Layout, Menu } from 'antd';
 import { MenuItems } from '../../views/MenuItems';
-import AdminRoutes from '../../routes/AdminRoutes';
+import AdminRoutes from '../../routes/Admin/AdminRoutes';
 
 import "./Nav.scss";
 
@@ -51,14 +51,14 @@ const Nav = () => {
                         menu.canExpand ? 
                             <SubMenu key={`sub${menu.key}`}
                                      icon={<menu.icon />}
-                                     title={menu.titulo}
+                                     title={menu.title}
                                      className="hover-menu">
                                 {menu.submenu?.map((submenu) => (
                                     <Menu.Item className="d-flex align-items-center" 
                                                key={submenu.key}
                                                icon={<submenu.icon />}>
-                                        <Link to={submenu.ruta}>
-                                            {submenu.titulo}
+                                        <Link to={submenu.path}>
+                                            {submenu.title}
                                         </Link>
                                     </Menu.Item>
                                 ))}
@@ -67,8 +67,8 @@ const Nav = () => {
                             <Menu.Item className="d-flex align-items-center" 
                                        key={menu.key}
                                        icon={<menu.icon />}>
-                                <Link to={menu.ruta}>
-                                    {menu.titulo}
+                                <Link to={menu.path}>
+                                    {menu.title}
                                 </Link>
                             </Menu.Item>
                     ))}

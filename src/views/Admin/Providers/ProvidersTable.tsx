@@ -1,45 +1,45 @@
 import React, { useState, useEffect } from 'react'
-import { ProveedoresType } from "../../../interfaces/Admin/ProveedoresType";
+import { ProvidersType } from "../../../interfaces/Admin/ProvidersType";
 import { PaginationType } from "../../../interfaces/Generic/PaginationType";
-import Proveedor from "./Proveedor";
-import TablaVacia from "../../../components/TablaVacia";
+import Provider from "./Provider";
+import EmptyTable from "../../../components/EmptyTable";
 import Paginator from "../../../components/Paginator";
-import ProveedoresService from "../../../services/Admin/ProveedoresService";
+import ProvidersService from "../../../services/Admin/ProvidersService";
 import Proptypes from "prop-types";
 
-const TablaProveedores = ({busqueda, actualizar}) => {
+const ProvidersTable = ({search, update}) => {
 
-    const [ proveedores, setProveedores ] = useState<Array<ProveedoresType>>([]);
+    const [ providers, setProviders ] = useState<Array<ProvidersType>>([]);
     const [ page, setPage ] = useState<number>(1);
     const [ resourceQty, setResourceQty ] = useState<number>(10);
     const [ pagination, setPagination ] = useState<PaginationType>({
-        cantPag: 0,
-        totalRegistros: 0
+        pageQty: 0,
+        totalRecords: 0
     });
 
-    const obtenerProveedores = async () => {
-        await ProveedoresService.getProveedores(true, page, busqueda, resourceQty)
-        .then(provs => {
-            const { cantidadpaginas, totalregistros } = provs.headers;
-
-            setPagination({
-                cantPag: Number(cantidadpaginas),
-                totalRegistros: Number(totalregistros)
-            })
-
-            setProveedores(provs.data);
-        })
-        .catch(err => console.log('err', err));
-    }
-
     useEffect(() => {
+        const getProviders = async () => {
+            await ProvidersService.getProviders(true, page, search, resourceQty)
+            .then(provs => {
+                const { pageQty, totalRecords } = provs.headers;
+    
+                setPagination({
+                    pageQty: Number(pageQty),
+                    totalRecords: Number(totalRecords)
+                })
+    
+                setProviders(provs.data);
+            })
+            .catch(err => console.log('err', err));
+        }
+
         try {
-            obtenerProveedores();
+            getProviders();
         } catch (err) {
             console.log('err', err.message)    
         }
 
-    }, [busqueda, actualizar, page, resourceQty])
+    }, [search, update, page, resourceQty])
 
     return (
         <div>
@@ -57,13 +57,13 @@ const TablaProveedores = ({busqueda, actualizar}) => {
                     </thead>
                     <tbody>
                         {
-                            proveedores.length !== 0 ?
+                            providers.length !== 0 ?
 
-                            proveedores.map(prov => (
-                                <Proveedor key={prov.id} prov={prov}/>
+                            providers.map(prov => (
+                                <Provider key={prov.id} prov={prov}/>
                             )) 
                             :
-                            <TablaVacia colspan={6}/>
+                            <EmptyTable colspan={6}/>
                         }
                     </tbody>
                 </table>
@@ -82,9 +82,9 @@ const TablaProveedores = ({busqueda, actualizar}) => {
     )
 }
 
-TablaProveedores.propTypes = {
-    busqueda: Proptypes.string.isRequired,
-    actualizar: Proptypes.bool.isRequired,
+ProvidersTable.propTypes = {
+    search: Proptypes.string.isRequired,
+    update: Proptypes.bool.isRequired,
 }
 
-export default TablaProveedores;
+export default ProvidersTable;

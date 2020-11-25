@@ -1,19 +1,17 @@
 import React from 'react';
-
-import { Informativos } from "../enums/Mensajes";
-
+import { Informative } from "../enums/Messages";
 import Proptypes from "prop-types";
 
-const TablaVacia = ({ colspan }) => (
+const EmptyTable = ({ colspan }) => (
     <tr>
         <td colSpan={colspan} className="text-center blue mw-text small-text">
-            {Informativos.TablaVacia}
+            {Informative.EmptyTable}
         </td>
     </tr>
 )
 
-TablaVacia.propTypes = {
+EmptyTable.propTypes = {
     colspan: Proptypes.number.isRequired
 }
 
-export default TablaVacia;
+export default EmptyTable;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EditarUsuario = () => {
+const EditUser = () => {
     return (
         <div className="container-fluid">
             <h1>Editar Usuario</h1>
@@ -8,4 +8,4 @@ const EditarUsuario = () => {
     )
 }
  
-export default EditarUsuario;
+export default EditUser;

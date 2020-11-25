@@ -3,7 +3,7 @@ import { Form, Input, Button, Select } from 'antd';
 import { maxLenght, minLenght, required, type_email, pattern } from "../../../helpers/ValidationsForm";
 import { PatternText, PatternNumber } from "../../../helpers/Patterns";
 
-const CrearUsuario = () => {
+const CreateUser = () => {
 
     const [form] = Form.useForm();
 
@@ -30,7 +30,7 @@ const CrearUsuario = () => {
                         {/* Seleccion de rol */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                        name="fk_rol"
+                                        name="roleFk"
                                         label="Rol / Puesto"
                                         hasFeedback
                                         rules={[required('rol / puesto')]}>
@@ -44,7 +44,7 @@ const CrearUsuario = () => {
                         {/* Input nombre */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                        name="nombre"
+                                        name="name"
                                         label="Nombre"
                                         hasFeedback
                                         rules={[ required('nombre'), maxLenght(150), pattern(PatternText) ]}>
@@ -54,28 +54,15 @@ const CrearUsuario = () => {
                                     autoComplete="off" />
                             </Form.Item>
                         </div>
-                        {/* Input apellido paterno */}
+                        {/* Input apellidos */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                    name="apellido_paterno"
-                                    label="Apellido paterno"
+                                    name="lastNames"
+                                    label="Apellidos"
                                     hasFeedback
-                                    rules={[ required('apellido paterno'), maxLenght(100), pattern(PatternText) ]}>
+                                    rules={[ required('apellidos'), maxLenght(100), pattern(PatternText) ]}>
                                 <Input className="border-r" 
-                                    placeholder="Ingresa apellido paterno"
-                                    prefix={<i className="fa fa-user"></i>}
-                                    autoComplete="off" />
-                            </Form.Item>
-                        </div>
-                        {/* Input apellido materno */}
-                        <div className="col-12 col-md-4">
-                            <Form.Item className="mw-text"
-                                    name="apellido_materno"
-                                    label="Apellido materno"
-                                    hasFeedback
-                                    rules={[ required('apellido materno'), maxLenght(100), pattern(PatternText) ]}>
-                                <Input className="border-r" 
-                                    placeholder="Ingresa apellido materno"
+                                    placeholder="Ingresa apellidos"
                                     prefix={<i className="fa fa-user"></i>}
                                     autoComplete="off" />
                             </Form.Item>
@@ -84,7 +71,7 @@ const CrearUsuario = () => {
                         {/* Input telefono */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                    name="telefono"
+                                    name="phoneNumber"
                                     label="Teléfono"
                                     hasFeedback
                                     rules={[ maxLenght(15), pattern(PatternNumber) ]}>
@@ -101,7 +88,7 @@ const CrearUsuario = () => {
                         {/* Input calle */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                    name="calle"
+                                    name="street"
                                     label="Calle"
                                     hasFeedback
                                     rules={[ maxLenght(150) ]}>
@@ -113,7 +100,7 @@ const CrearUsuario = () => {
                         {/* Input numero exterior */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                    name="num_ext"
+                                    name="extNum"
                                     label="Número exterior"
                                     hasFeedback
                                     rules={[ maxLenght(7) ]}>
@@ -125,7 +112,7 @@ const CrearUsuario = () => {
                         {/* Input numero interior */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                    name="num_int"
+                                    name="intNum"
                                     label="Número interior"
                                     hasFeedback
                                     rules={[ maxLenght(7) ]}>
@@ -137,7 +124,7 @@ const CrearUsuario = () => {
                         {/* Input colonia */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                    name="colonia"
+                                    name="neighborhood"
                                     label="Colonia"
                                     hasFeedback
                                     rules={[ maxLenght(150) ]}>
@@ -164,7 +151,7 @@ const CrearUsuario = () => {
                         {/* Input correo */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                    name="correo"
+                                    name="email"
                                     label="Correo"
                                     hasFeedback
                                     rules={[ type_email(), required('correo'), maxLenght(100) ]}>
@@ -176,7 +163,7 @@ const CrearUsuario = () => {
                         {/* Input contraseña */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                    name="contrasena"
+                                    name="psw"
                                     label="Contraseña"
                                     hasFeedback
                                     rules={[minLenght(8), required('contraseña')]}>
@@ -211,4 +198,4 @@ const CrearUsuario = () => {
     )
 }
  
-export default CrearUsuario;
+export default CreateUser;

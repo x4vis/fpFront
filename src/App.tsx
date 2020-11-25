@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 /* AUTH */
 const Login = lazy(() => import('./views/Auth/Login/Login'));
-const RecuperarPassword = lazy(() => import('./views/Auth/RecuperarPassword/RecuperarPassword'));
-const RestaurarPassword = lazy(() => import('./views/Auth/RestaurarPassword/RestaurarPassword'));
-const PaginaPrincipal = lazy(() => import('./views/PaginaPrincipal/PaginaPrincipal'))
+const PasswordRecover = lazy(() => import('./views/Auth/PasswordRecover/PasswordRecover'));
+const PasswordRestore = lazy(() => import('./views/Auth/PasswordRestore/PasswordRestore'));
+const MainPage = lazy(() => import('./views/MainPage/MainPage'))
 
 /* ADMIN */
 const Nav = lazy(() => import('./components/Nav/Nav'));
@@ -18,11 +18,11 @@ function App() {
           <Redirect exact from='/' to='/login' />
           {/* AUTH */}
           <Route exact path="/login" component={Login} />
-          <Route exact path="/recuperar-contrasena" component={RecuperarPassword} />
-          <Route exact path="/restaurar-contrasena/:token" component={RestaurarPassword} />
+          <Route exact path="/recuperar-contrasena" component={PasswordRecover} />
+          <Route exact path="/restaurar-contrasena/:token" component={PasswordRestore} />
 
           {/* PANTALLA PRINCIPAL */}
-          <Route exact path="/pantalla-principal" component={PaginaPrincipal} />
+          <Route exact path="/pantalla-principal" component={MainPage} />
 
           {/* ADMIN */}
           <Route path="/admin" component={Nav} />

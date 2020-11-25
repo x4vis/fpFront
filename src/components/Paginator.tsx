@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Pagination } from 'antd';
+import Proptypes from "prop-types";
 
 const Paginator = ({pagination, page, setPage, resourceQty, setResourceQty}) => {
 
-    const { totalRegistros } = pagination;
+    const { totalRecords } = pagination;
 
-    if(totalRegistros === 0) {
+    if(totalRecords === 0) {
         return null;
     }
 
     return (
         <Pagination
             className="d-flex justify-content-end mt-4"
-            total={totalRegistros}
+            total={totalRecords}
             pageSize={resourceQty}
             showTotal={(total, range) => `${range[0]}-${range[1]} de ${total}`}
             defaultPageSize={resourceQty}
@@ -24,5 +25,14 @@ const Paginator = ({pagination, page, setPage, resourceQty, setResourceQty}) => 
         />
     )
 }
+
+Paginator.propTypes = {
+    pagination: Proptypes.object.isRequired,
+    page: Proptypes.number.isRequired,
+    setPage: Proptypes.func.isRequired,
+    resourceQty: Proptypes.number.isRequired,
+    setResourceQty: Proptypes.func.isRequired
+}
+
 
 export default Paginator;

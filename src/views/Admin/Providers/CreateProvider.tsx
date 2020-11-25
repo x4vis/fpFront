@@ -1,13 +1,13 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { Form, Input, Button, Select } from 'antd';
 import { maxLenght, required, type_email, pattern } from "../../../helpers/ValidationsForm";
 import { PatternText, PatternNumber, PatternPersonaFisica, PatternPersonaMoral } from "../../../helpers/Patterns";
 
-const CrearProveedor = () => {
+const CreateProvider = () => {
 
     const [form] = Form.useForm();
-    const [ tipoPersona, setTipoPersona ] = useState<string>('');
+    const [ personType, setPersonType ] = useState<string>('');
 
     const handleSubmit = () => {
         
@@ -27,12 +27,12 @@ const CrearProveedor = () => {
                         {/* Seleccion de tipo de persona */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                        name="tipo_persona"
+                                        name="personType"
                                         label="Tipo de persona"
                                         hasFeedback
                                         rules={[required('tipo de persona')]}>
                                 <Select placeholder="Seleccione"
-                                        onChange={val => {setTipoPersona(`${val}`)}}>
+                                        onChange={val => {setPersonType(`${val}`)}}>
                                     <Select.Option value="Fisica">Fisica</Select.Option>
                                     <Select.Option value="Moral">Moral</Select.Option>
                                 </Select>
@@ -41,7 +41,7 @@ const CrearProveedor = () => {
                         {/* Input nombre */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                        name="nombre"
+                                        name="name"
                                         label="Nombre"
                                         hasFeedback
                                         rules={[ required('nombre'), maxLenght(255), pattern(PatternText) ]}>
@@ -54,7 +54,7 @@ const CrearProveedor = () => {
                         {/* Input nombre comercial*/}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                        name="nombre_comercial"
+                                        name="comercialName"
                                         label="Nombre comercial"
                                         hasFeedback
                                         rules={[ required('nombre comercial'), maxLenght(255) ]}>
@@ -73,26 +73,26 @@ const CrearProveedor = () => {
                                         rules={[ 
                                             required('RFC'), 
                                             maxLenght(255), 
-                                            pattern(tipoPersona === 'Fisica' ? PatternPersonaFisica : PatternPersonaMoral) 
+                                            pattern(personType === 'Fisica' ? PatternPersonaFisica : PatternPersonaMoral) 
                                         ]}>
-                                <Fragment>
+                                <>
                                     <Input className="border-r"
-                                           disabled={tipoPersona === ''} 
+                                           disabled={personType === ''} 
                                            placeholder="Ingresa nombre comercial"
                                            prefix={<i className="fa fa-user"></i>}
                                            autoComplete="off" />
 
-                                        { tipoPersona === '' ? 
+                                        { personType === '' ? 
                                             <p className="mt-1 mb-0 danger">Seleccionar tipo de persona para habilitar</p> :
                                             null
                                         }
-                                </Fragment>
+                                </>
                             </Form.Item>
                         </div>
                         {/* Input correo */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                       name="correo"
+                                       name="email"
                                        label="Correo"
                                        hasFeedback
                                        rules={[ type_email(), required('correo'), maxLenght(128) ]}>
@@ -104,7 +104,7 @@ const CrearProveedor = () => {
                         {/* Input telefono */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                       name="telefono"
+                                       name="phoneNumber"
                                        label="Teléfono"
                                        hasFeedback
                                        rules={[ maxLenght(15), pattern(PatternNumber) ]}>
@@ -116,7 +116,7 @@ const CrearProveedor = () => {
                         {/* Input calle */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                       name="calle"
+                                       name="street"
                                        label="Calle"
                                        hasFeedback
                                        rules={[ maxLenght(150), pattern(PatternText) ]}>
@@ -128,7 +128,7 @@ const CrearProveedor = () => {
                         {/* Input numero exterior */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                       name="num_ext"
+                                       name="extNum"
                                        label="Número exterior"
                                        hasFeedback
                                        rules={[ maxLenght(7) ]}>
@@ -140,7 +140,7 @@ const CrearProveedor = () => {
                         {/* Input numero interior */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                       name="num_int"
+                                       name="intNum"
                                        label="Número interior"
                                        hasFeedback
                                        rules={[ maxLenght(7) ]}>
@@ -152,7 +152,7 @@ const CrearProveedor = () => {
                         {/* Input colonia */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                       name="colonia"
+                                       name="neighborhood"
                                        label="Colonia"
                                        hasFeedback
                                        rules={[ maxLenght(150) ]}>
@@ -214,4 +214,4 @@ const CrearProveedor = () => {
     )
 }
 
-export default CrearProveedor;
+export default CreateProvider;

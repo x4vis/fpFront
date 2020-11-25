@@ -1,6 +1,6 @@
 export interface MenuItemsType {
-    ruta?: string,
-    titulo?: string,
+    path?: string,
+    title?: string,
     icon?: any,
     canExpand?: boolean,
     key?: string,

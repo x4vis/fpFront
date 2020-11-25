@@ -6,13 +6,13 @@ import Logo_small from "../../../assets/imgs-small/Logo_small.png";
 
 import { Link } from "react-router-dom";
 
-import classes from "./RecuperarPassword.module.scss";
+import classes from "./PasswordRecover.module.scss";
 
-const RecuperarPassword = () => {
+const PasswordRecover = () => {
 
     const [form] = Form.useForm();
 
-    const enviarCorreo = () => {
+    const sendEmail = () => {
         
     }
 
@@ -31,12 +31,12 @@ const RecuperarPassword = () => {
                           name="login" 
                           layout="vertical" 
                           size="large" 
-                          onFinish={enviarCorreo}>
+                          onFinish={sendEmail}>
                         <Form.Item className="mw-text"
-                                   name="correo"
+                                   name="email"
                                    label="Correo"
                                    hasFeedback
-                                   rules={[ type_email(), required('usuario')]}>
+                                   rules={[ type_email(), required('correo')]}>
                             <Input className="border-r"
                                    placeholder="Ingresa tu correo" 
                                    prefix={<i className="fa fa-at"></i>} />
@@ -70,4 +70,4 @@ const RecuperarPassword = () => {
     )
 }
 
-export default RecuperarPassword;
+export default PasswordRecover;

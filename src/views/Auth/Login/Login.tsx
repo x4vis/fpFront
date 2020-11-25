@@ -11,7 +11,7 @@ import classes from "./Login.module.scss";
 const Login = () => {
     const [form] = Form.useForm();
 
-    const iniciarSesion = () => {
+    const logIn = () => {
         
     }
 
@@ -30,9 +30,9 @@ const Login = () => {
                           name="login" 
                           layout="vertical" 
                           size="large" 
-                          onFinish={iniciarSesion}>
+                          onFinish={logIn}>
                         <Form.Item className="mw-text"
-                                   name="correo"
+                                   name="email"
                                    label="Correo"
                                    hasFeedback
                                    rules={[ type_email(), required('correo')]}>
@@ -42,7 +42,7 @@ const Login = () => {
                         </Form.Item>
 
                         <Form.Item className="mw-text mt-3"
-                                   name="contrasena"
+                                   name="psw"
                                    label="Contraseña"
                                    hasFeedback
                                    rules={[minLenght(8), required('contraseña')]}>

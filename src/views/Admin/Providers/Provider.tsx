@@ -1,15 +1,16 @@
 import React from 'react';
 import { Button } from 'antd';
+import { ProvidersType } from "../../../interfaces/Admin/ProvidersType";
 
 import Proptypes from "prop-types";
 
-const Proveedor = ({ prov }) => (
+const Provider: React.FC<{ prov: ProvidersType }> = ({ prov }) => (
     <tr>
-        <td>{prov.nombre}</td>
-        <td>{prov.nombreComercial}</td>
-        <td>{prov.tipoPersona}</td>
-        <td>{prov.telefono === null ? "N/A" : prov.telefono}</td>
-        <td>{prov.correo === null ? "N/A" : prov.correo}</td>
+        <td>{prov.name}</td>
+        <td>{prov.comercialName}</td>
+        <td>{prov.personType}</td>
+        <td>{prov.phoneNumber === null ? "N/A" : prov.phoneNumber}</td>
+        <td>{prov.email === null ? "N/A" : prov.email}</td>
         <td className="d-flex">
             <Button type="primary" ghost className="mx-2 px-3">
                 <i className="fa fa-pencil" aria-hidden="true"></i>
@@ -21,8 +22,8 @@ const Proveedor = ({ prov }) => (
     </tr>
 )
 
-Proveedor.propTypes = {
+Provider.propTypes = {
     prov: Proptypes.object.isRequired
 }
 
-export default Proveedor;
+export default Provider;

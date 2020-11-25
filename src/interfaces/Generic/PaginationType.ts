@@ -1,6 +1,6 @@
 export interface PaginationType {
-    cantPag?: number,
-    totalRegistros?: number,
+    pageQty?: number,
+    totalRecords?: number,
     page?: number,
     resourceQty?: number,
 }

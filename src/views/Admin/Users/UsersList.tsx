@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'antd';
 import { withRouter } from 'react-router-dom'
 
-const ListarUsuarios = (props) => {
+const UsersList = (props) => {
 
     const { history } = props;
  
@@ -28,4 +28,4 @@ const ListarUsuarios = (props) => {
     )
 }
  
-export default withRouter(ListarUsuarios);
+export default withRouter(UsersList);
