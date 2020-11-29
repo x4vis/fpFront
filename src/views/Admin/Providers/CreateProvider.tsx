@@ -10,7 +10,7 @@ const CreateProvider = () => {
     const [ personType, setPersonType ] = useState<string>('');
 
     const handleSubmit = () => {
-        
+        console.log('personType', personType)
     }
 
     return (
@@ -24,20 +24,6 @@ const CreateProvider = () => {
                       size="large"
                       onFinish={handleSubmit} >
                     <div className="row">
-                        {/* Seleccion de tipo de persona */}
-                        <div className="col-12 col-md-4">
-                            <Form.Item className="mw-text"
-                                        name="personType"
-                                        label="Tipo de persona"
-                                        hasFeedback
-                                        rules={[required('tipo de persona')]}>
-                                <Select placeholder="Seleccione"
-                                        onChange={val => {setPersonType(`${val}`)}}>
-                                    <Select.Option value="Fisica">Fisica</Select.Option>
-                                    <Select.Option value="Moral">Moral</Select.Option>
-                                </Select>
-                            </Form.Item>
-                        </div>
                         {/* Input nombre */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
@@ -64,6 +50,20 @@ const CreateProvider = () => {
                                        autoComplete="off" />
                             </Form.Item>
                         </div>
+                        {/* Seleccion de tipo de persona */}
+                        <div className="col-12 col-md-4">
+                            <Form.Item className="mw-text"
+                                        name="personType"
+                                        label="Tipo de persona"
+                                        hasFeedback
+                                        rules={[required('tipo de persona')]}>
+                                <Select placeholder="Seleccione"
+                                        onChange={val => { setPersonType(`${val}`) }}>
+                                    <Select.Option value="Fisica">Fisica</Select.Option>
+                                    <Select.Option value="Moral">Moral</Select.Option>
+                                </Select>
+                            </Form.Item>
+                        </div>
                         {/* Input rfc*/}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
@@ -78,7 +78,7 @@ const CreateProvider = () => {
                                 <>
                                     <Input className="border-r"
                                            disabled={personType === ''} 
-                                           placeholder="Ingresa nombre comercial"
+                                           placeholder="Ingresa RFC"
                                            prefix={<i className="fa fa-user"></i>}
                                            autoComplete="off" />
 
@@ -205,11 +205,7 @@ const CreateProvider = () => {
                         </div>
                     </div>
                 </Form>
-
-                
             </div>
-
-            
         </div>
     )
 }

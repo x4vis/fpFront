@@ -1,11 +1,11 @@
-import React, { Fragment, lazy } from 'react';
+import React from 'react';
 
 import ProvidersRoutes from './ProvidersRoutes';
 import UsersRoutes from './UsersRoutes'
 
 const AdminRoutes = () => {
   return (
-      <Fragment>
+      <>
         {/* USUARIOS */}
         <UsersRoutes />
 
@@ -22,7 +22,7 @@ const AdminRoutes = () => {
 
         {/* PRODUCTOS */}
         
-      </Fragment>
+      </>
   );
 }
 

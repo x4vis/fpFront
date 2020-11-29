@@ -1,11 +1,11 @@
 import { AxiosResponse } from 'axios';
-import API from '../config';
+import API, { source } from '../config';
 const URL = "/providers";
 
 const ProvidersService =  {
 
     getProviders: async (paginated: boolean, page?: number, search?: string, resourceQty?: number): Promise<AxiosResponse> => {
-        return await API.get(`${URL}/list`, { params: { paginated, page, search, resourceQty } });
+        return await API.get(`${URL}/list`, { params: { paginated, page, search, resourceQty }, cancelToken: source.token });
     },
 
     getProvider: async (id: number): Promise<AxiosResponse> => {
