@@ -25,7 +25,7 @@ export function required(campo: string): object {
     return required_rule;
 }
 
-export function type_email(): object {
+export function typeEmail(): object {
     const email_rule = {
         type: 'email',
         message: 'El correo no es valido'

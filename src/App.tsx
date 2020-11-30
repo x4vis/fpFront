@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
+import { notification } from 'antd';
+
 /* AUTH */
 const Login = lazy(() => import('./views/Auth/Login/Login'));
 const PasswordRecover = lazy(() => import('./views/Auth/PasswordRecover/PasswordRecover'));
@@ -11,6 +13,11 @@ const MainPage = lazy(() => import('./views/MainPage/MainPage'))
 const Nav = lazy(() => import('./components/Nav/Nav'));
 
 function App() {
+  notification.config({
+    placement: 'topRight',
+    duration: 3,
+  });
+
   return (
     <Router>
       <Suspense fallback={ '' }>

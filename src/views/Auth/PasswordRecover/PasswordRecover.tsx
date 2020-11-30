@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd';
-import { required, type_email } from "../../../helpers/ValidationsForm";
+import { required, typeEmail } from "../../../helpers/ValidationsForm";
 import Logo from "../../../assets/Logo.png";
 import Logo_small from "../../../assets/imgs-small/Logo_small.png";
 
@@ -36,7 +36,7 @@ const PasswordRecover = () => {
                                    name="email"
                                    label="Correo"
                                    hasFeedback
-                                   rules={[ type_email(), required('correo')]}>
+                                   rules={[ typeEmail(), required('correo')]}>
                             <Input className="border-r"
                                    placeholder="Ingresa tu correo" 
                                    prefix={<i className="fa fa-at"></i>} />

@@ -1,16 +1,32 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { Form, Input, Button, Select } from 'antd';
-import { maxLenght, required, type_email, pattern } from "../../../helpers/ValidationsForm";
+import { Form, Input, Button, Select, notification } from 'antd';
+import { maxLenght, required, typeEmail, pattern } from "../../../helpers/ValidationsForm";
 import { PatternText, PatternNumber, PatternPersonaFisica, PatternPersonaMoral } from "../../../helpers/Patterns";
+import { addedResource } from "../../../helpers/Messages"; 
+
+import ProvidersService from "../../../services/Admin/ProvidersService";
 
 const CreateProvider = () => {
-
-    const [form] = Form.useForm();
+    const [ form ] = Form.useForm();
     const [ personType, setPersonType ] = useState<string>('');
 
-    const handleSubmit = () => {
-        console.log('personType', personType)
+    const handleSubmit = async () => {
+        const cp = form.getFieldsValue().cp;
+
+        form.setFieldsValue({
+            cp: cp ? Number(cp) : cp
+        });
+
+        await ProvidersService.createProvider(form.getFieldsValue())
+        .then(() => { 
+            notification.success({
+                message: addedResource('proveedor')
+            });
+
+            form.resetFields();
+        })
+        .catch(err => { console.log('err', err.message) });
     }
 
     return (
@@ -24,6 +40,10 @@ const CreateProvider = () => {
                       size="large"
                       onFinish={handleSubmit} >
                     <div className="row">
+                        <div className="col-12">
+                            <h2 className="blue mw-text medium-text">Datos generales</h2>
+                        </div>
+
                         {/* Input nombre */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
@@ -67,35 +87,31 @@ const CreateProvider = () => {
                         {/* Input rfc*/}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
-                                        name="rfc"
-                                        label="RFC"
-                                        hasFeedback
-                                        rules={[ 
+                                       name="rfc"
+                                       label="RFC"
+                                       hasFeedback
+                                       rules={[ 
                                             required('RFC'), 
                                             maxLenght(255), 
                                             pattern(personType === 'Fisica' ? PatternPersonaFisica : PatternPersonaMoral) 
-                                        ]}>
-                                <>
-                                    <Input className="border-r"
-                                           disabled={personType === ''} 
-                                           placeholder="Ingresa RFC"
-                                           prefix={<i className="fa fa-user"></i>}
-                                           autoComplete="off" />
+                                       ]} >
 
-                                        { personType === '' ? 
-                                            <p className="mt-1 mb-0 danger">Seleccionar tipo de persona para habilitar</p> :
-                                            null
-                                        }
-                                </>
+                                <Input className="border-r"
+                                       placeholder="Ingresa RFC"
+                                       disabled={personType === ''}
+                                       prefix={<i className="fa fa-user"></i>}
+                                       autoComplete="off" />
+
                             </Form.Item>
                         </div>
+
                         {/* Input correo */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
                                        name="email"
                                        label="Correo"
                                        hasFeedback
-                                       rules={[ type_email(), required('correo'), maxLenght(128) ]}>
+                                       rules={[ typeEmail(), required('correo'), maxLenght(128) ]}>
                                 <Input className="border-r" 
                                        placeholder="Ingresa correo" 
                                        prefix={<i className="fa fa-at"></i>} />
@@ -113,6 +129,11 @@ const CreateProvider = () => {
                                        prefix={<i className="fa fa-phone"></i>} />
                             </Form.Item>
                         </div>
+
+                        <div className="col-12">
+                            <h2 className="blue mw-text medium-text">Datos dirección</h2>
+                        </div>
+
                         {/* Input calle */}
                         <div className="col-12 col-md-4">
                             <Form.Item className="mw-text"
@@ -155,7 +176,7 @@ const CreateProvider = () => {
                                        name="neighborhood"
                                        label="Colonia"
                                        hasFeedback
-                                       rules={[ maxLenght(150) ]}>
+                                       rules={[ maxLenght(150), pattern(PatternText) ]}>
                                 <Input className="border-r" 
                                        placeholder="Ingresa colonia" 
                                        prefix={<i className="fa fa-address-card"></i>} />
@@ -167,7 +188,7 @@ const CreateProvider = () => {
                                        name="cp"
                                        label="Código Postal"
                                        hasFeedback
-                                       rules={[ maxLenght(7), pattern(PatternNumber) ]}>
+                                       rules={[ maxLenght(5), pattern(PatternNumber) ]}>
                                 <Input className="border-r" 
                                        placeholder="Ingresa teléfono" 
                                        prefix={<i className="fa fa-address-card"></i>} />

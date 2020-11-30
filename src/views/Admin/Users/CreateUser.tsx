@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
-import { maxLenght, minLenght, required, type_email, pattern } from "../../../helpers/ValidationsForm";
+import { maxLenght, minLenght, required, typeEmail, pattern } from "../../../helpers/ValidationsForm";
 import { PatternText, PatternNumber } from "../../../helpers/Patterns";
 
 const CreateUser = () => {
@@ -154,7 +154,7 @@ const CreateUser = () => {
                                     name="email"
                                     label="Correo"
                                     hasFeedback
-                                    rules={[ type_email(), required('correo'), maxLenght(100) ]}>
+                                    rules={[ typeEmail(), required('correo'), maxLenght(100) ]}>
                                 <Input className="border-r" 
                                     placeholder="Ingresa correo" 
                                     prefix={<i className="fa fa-at"></i>} />
