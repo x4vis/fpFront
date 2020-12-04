@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Form, Input, Button, Select, notification } from 'antd';
 import { maxLenght, required, typeEmail, pattern } from "../../../helpers/ValidationsForm";
 import { PatternText, PatternNumber, PatternPersonaFisica, PatternPersonaMoral } from "../../../helpers/Patterns";
@@ -7,7 +7,7 @@ import { addedResource } from "../../../helpers/Messages";
 
 import ProvidersService from "../../../services/Admin/ProvidersService";
 
-const CreateProvider = ({ history }) => {
+const CreateProvider = () => {
     const [ form ] = Form.useForm();
     const [ personType, setPersonType ] = useState<string>('');
 
@@ -15,16 +15,18 @@ const CreateProvider = ({ history }) => {
         const cp = form.getFieldsValue().cp;
 
         form.setFieldsValue({
-            cp: cp ? Number(cp) : cp
+            cp: cp ? Number(cp) : null
         });
 
         await ProvidersService.createProvider(form.getFieldsValue())
-        .then(() => { 
+        .then((VALUE) => { 
             notification.success({
                 message: addedResource('proveedor')
             });
 
             form.resetFields();
+
+            console.log('value', VALUE)
         })
         .catch(err => { console.log('err', err) });
     }
@@ -111,7 +113,7 @@ const CreateProvider = ({ history }) => {
                                        name="email"
                                        label="Correo"
                                        hasFeedback
-                                       rules={[ typeEmail(), required('correo'), maxLenght(128) ]}>
+                                       rules={[ typeEmail(), maxLenght(128) ]}>
                                 <Input className="border-r" 
                                        placeholder="Ingresa correo" 
                                        prefix={<i className="fa fa-at"></i>} />
@@ -199,15 +201,16 @@ const CreateProvider = ({ history }) => {
                     <div className="row align-items-center flex-column-reverse flex-sm-row mt-4">
                         <div className="col-12 col-sm-4">
                             <Form.Item className="mt-3 mt-sm-5">
-                                <Button className="fullWidth border-r"
-                                        htmlType="button"
-                                        size="large"
-                                        onClick={() => history.push('/admin/proveedores')}>
-                                    <p className="bw-text blue">
-                                        <i className="fa fa-arrow-left mr-3"></i>
-                                        Regresar a listado
-                                    </p>
-                                </Button>
+                                <Link to={'/admin/proveedores'}>
+                                    <Button className="fullWidth border-r"
+                                            htmlType="button"
+                                            size="large">
+                                        <p className="bw-text blue">
+                                            <i className="fa fa-arrow-left mr-3"></i>
+                                            Regresar a listado
+                                        </p>
+                                    </Button>
+                                </Link>
                             </Form.Item>  
                         </div>
                         <div className="col-12 col-sm-4">
@@ -230,4 +233,4 @@ const CreateProvider = ({ history }) => {
     )
 }
 
-export default withRouter(CreateProvider);
+export default CreateProvider;

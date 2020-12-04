@@ -16,12 +16,8 @@ const Paginator = ({pagination, setPagination}) => {
             total={totalRecords}
             pageSize={resourceQty}
             showTotal={(total, range) => `${range[0]}-${range[1]} de ${total}`}
-            defaultPageSize={resourceQty}
             defaultCurrent={page}
-            pageSizeOptions={['10', '20', '30']}
             onChange={(page) => setPagination({ ...pagination, page: page })}
-            showSizeChanger={true}
-            onShowSizeChange={(current, size) => setPagination({ ...pagination, resourceQty: size })}
         />
     )
 }
