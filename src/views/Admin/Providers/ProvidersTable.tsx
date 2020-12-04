@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ProvidersService from "../../../services/Admin/ProvidersService";
-import { Axios, source } from '../../../services/config';
+import { Axios } from '../../../services/config';
 import Proptypes from "prop-types";
 
 import Provider from "./Provider";
@@ -26,23 +26,24 @@ const ProvidersTable = ({search, update}) => {
         const getProviders = async () => { 
             await ProvidersService.getProviders(true, page, search, resourceQty)
             .then(provs => {
-                setPagination({
-                    ...pagination,
-                    pageQty: provs.headers.pageqty,
-                    totalRecords: provs.headers.totalrecords
-                })
-    
+                handlePagination(provs);
                 setProviders(provs.data);
+                console.log("ejecutando")
             })
             .catch(err => { 
                 if(!Axios.isCancel(err)) { throw err; };
             });
         }
         getProviders();
+    }, [search, update, page, resourceQty])
 
-        // clean up
-        return () => { source.cancel(); };
-    }, [search, update, pagination, page, resourceQty])
+    const handlePagination = ({ headers }) => {
+        setPagination({
+            ...pagination,
+            pageQty: headers.pageqty,
+            totalRecords: headers.totalrecords
+        })
+    }
 
     return (
         <>
