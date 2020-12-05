@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import { Form, Input, Button, Select, notification } from 'antd';
 import { maxLenght, required, typeEmail, pattern } from "../../../helpers/ValidationsForm";
 import { PatternText, PatternNumber, PatternPersonaFisica, PatternPersonaMoral } from "../../../helpers/Patterns";
-import { addedResource } from "../../../helpers/Messages"; 
+import { addedResource } from "../../../helpers/Messages";
+import { Resources } from "../../../enums/Resources";
 
 import ProvidersService from "../../../services/Admin/ProvidersService";
+import BackToList from '../../../components/BackToList';
 
 const CreateProvider = () => {
     const [ form ] = Form.useForm();
@@ -200,18 +201,7 @@ const CreateProvider = () => {
 
                     <div className="row align-items-center flex-column-reverse flex-sm-row mt-4">
                         <div className="col-12 col-sm-4">
-                            <Form.Item className="mt-3 mt-sm-5">
-                                <Link to={'/admin/proveedores'}>
-                                    <Button className="fullWidth border-r"
-                                            htmlType="button"
-                                            size="large">
-                                        <p className="bw-text blue">
-                                            <i className="fa fa-arrow-left mr-3"></i>
-                                            Regresar a listado
-                                        </p>
-                                    </Button>
-                                </Link>
-                            </Form.Item>  
+                            <BackToList resource={Resources.Providers}/>
                         </div>
                         <div className="col-12 col-sm-4">
                             <Form.Item className="mt-3 mt-sm-5">

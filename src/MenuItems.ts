@@ -1,4 +1,4 @@
-import { MenuItemsType } from "../interfaces/Admin/MenuItemsType";
+import { MenuItemsType } from "./interfaces/Admin/MenuItemsType";
 import { BookOutlined, UserOutlined, FundProjectionScreenOutlined, BankOutlined } from '@ant-design/icons';
 
 export const MenuItems: Array<MenuItemsType> = [

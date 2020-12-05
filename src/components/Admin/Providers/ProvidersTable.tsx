@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ProvidersService from "../../../services/Admin/ProvidersService";
 import Proptypes from "prop-types";
 
-import Provider from "./Provider";
+import Provider from "../../../components/Admin/Providers/Provider";
 import EmptyTable from "../../../components/EmptyTable";
 import Paginator from "../../../components/Paginator";
 

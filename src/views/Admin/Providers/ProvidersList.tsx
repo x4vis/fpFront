@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Input } from 'antd';
 import CreateResourceBtn from "../../../components/CreateResourceBtn";
 import DeleteSearchBtn from "../../../components/DeleteSearchBtn"
-import ProvidersTable from "./ProvidersTable";
+import ProvidersTable from "../../../components/Admin/Providers/ProvidersTable";
 import { Resources } from "../../../enums/Resources";
 
 const ProvidersList = () => {
@@ -14,7 +14,7 @@ const ProvidersList = () => {
     const [ valueSearch, setValueSearch ] = useState<string>("");
     const [ update, setUpdate ] = useState<boolean>(false);
 
-    const handleSearch = (value) => {
+    const handleSearch = (value: string) => {
         setSearch(value);
     }
 

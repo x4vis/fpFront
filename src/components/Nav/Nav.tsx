@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { environment } from '../../environments/environment';
 import { Link } from "react-router-dom";
 import { Layout, Menu } from 'antd';
-import { MenuItems } from '../../views/MenuItems';
+import { MenuItems } from '../../MenuItems';
 import AdminRoutes from '../../routes/Admin/AdminRoutes';
 
 import "./Nav.scss";
