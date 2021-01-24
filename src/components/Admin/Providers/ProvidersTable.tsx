@@ -10,7 +10,6 @@ import { ProvidersType } from "../../../interfaces/Admin/ProvidersType";
 import { PaginationType } from "../../../interfaces/Generic/PaginationType";
 
 const ProvidersTable = ({search, update}) => {
-
     const [ providers, setProviders ] = useState<Array<ProvidersType>>([]);
     const [ pagination, setPagination ] = useState<PaginationType>({
         totalRecords: 0,
@@ -25,7 +24,7 @@ const ProvidersTable = ({search, update}) => {
             await ProvidersService.getProviders(true, page, search, resourceQty)
             .then(provs => {
                 setPagination({
-                    totalRecords: provs.headers.totalrecords,
+                    totalRecords: Number(provs.headers.totalrecords),
                     resourceQty,
                     page
                 })
@@ -54,12 +53,13 @@ const ProvidersTable = ({search, update}) => {
                     </thead>
                     <tbody>
                         {
-                            providers.length !== 0 ?
-
+                            providers.length !== 0 &&
                             providers.map(prov => (
                                 <Provider key={prov.id} prov={prov}/>
-                            )) 
-                            :
+                            ))
+                        }
+                        {
+                            providers.length === 0 && 
                             <EmptyTable colspan={6}/>
                         }
                     </tbody>
@@ -76,9 +76,11 @@ const ProvidersTable = ({search, update}) => {
     )
 }
 
+Paginator.displayName = "Paginator";
+
 ProvidersTable.propTypes = {
     search: Proptypes.string.isRequired,
     update: Proptypes.bool.isRequired,
 }
 
-export default ProvidersTable;
+export default React.memo(ProvidersTable);

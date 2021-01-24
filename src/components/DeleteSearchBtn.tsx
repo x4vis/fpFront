@@ -19,4 +19,4 @@ DeleteSearchBtn.propTypes = {
     setvalueSearch: Proptypes.func.isRequired
 }
 
-export default DeleteSearchBtn;
+export default React.memo(DeleteSearchBtn);

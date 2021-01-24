@@ -19,4 +19,4 @@ CreateResourceBtn.propTypes = {
     resource: Proptypes.string.isRequired
 }
 
-export default CreateResourceBtn;
+export default React.memo(CreateResourceBtn);

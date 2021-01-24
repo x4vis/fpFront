@@ -24,9 +24,7 @@ const CreateProvider = () => {
             notification.success({
                 message: addedResource('proveedor')
             });
-
             form.resetFields();
-
             console.log('value', VALUE)
         })
         .catch(err => { console.log('err', err) });

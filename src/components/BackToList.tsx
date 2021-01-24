@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 import { Form, Button } from 'antd';
@@ -6,6 +6,7 @@ import { Form, Button } from 'antd';
 import PropTypes from 'prop-types'
 
 const BackToList = ({resource}) => {
+    console.log('me ejecuto');
     return (
         <Form.Item className="mt-3 mt-sm-5">
             <Link to={`/admin/${resource}`}>
@@ -23,7 +24,7 @@ const BackToList = ({resource}) => {
 }
 
 BackToList.propTypes = {
-
+    resource: PropTypes.string.isRequired,
 }
 
 export default BackToList

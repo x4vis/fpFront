@@ -57,5 +57,9 @@ const ProvidersList = () => {
         </div>
     )
 }
+
+CreateResourceBtn.displayName = "CreateResourceBtn";
+DeleteSearchBtn.displayName = "DeleteSearchBtn";
+ProvidersTable.displayName = "ProvidersTable";
  
 export default ProvidersList;

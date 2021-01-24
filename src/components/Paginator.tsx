@@ -17,14 +17,14 @@ const Paginator = ({pagination, setPagination}) => {
             pageSize={resourceQty}
             showTotal={(total, range) => `${range[0]}-${range[1]} de ${total}`}
             defaultCurrent={page}
-            onChange={(page) => setPagination({ ...pagination, page: page })}
+            onChange={(page) => setPagination({ ...pagination, page })}
         />
     )
-}
+};
 
 Paginator.propTypes = {
     pagination: Proptypes.object.isRequired,
     setPagination: Proptypes.func.isRequired
 }
 
-export default Paginator;
+export default React.memo(Paginator);
