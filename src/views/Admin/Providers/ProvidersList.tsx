@@ -6,17 +6,11 @@ import ProvidersTable from "../../../components/Admin/Providers/ProvidersTable";
 import { Resources } from "../../../enums/Resources";
 
 const ProvidersList = () => {
-
     const { Search } = Input;
 
-    //set states
     const [ search, setSearch ] = useState<string>("");
     const [ valueSearch, setValueSearch ] = useState<string>("");
     const [ update, setUpdate ] = useState<boolean>(false);
-
-    const handleSearch = (value: string) => {
-        setSearch(value);
-    }
 
     return (
         <div className="container-fluid">
@@ -43,7 +37,7 @@ const ProvidersList = () => {
                                 suffix={<DeleteSearchBtn setSearch={setSearch} setvalueSearch={setValueSearch}/>}
                                 value={valueSearch}
                                 onChange={e => setValueSearch(e.target.value)}
-                                onSearch={handleSearch} 
+                                onSearch={(value) => { setSearch(value) }} 
                                 enterButton />
                     </div>
                 </div>
