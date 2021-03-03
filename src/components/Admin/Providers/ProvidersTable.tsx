@@ -6,12 +6,12 @@ import Provider from "../../../components/Admin/Providers/Provider";
 import EmptyTable from "../../../components/EmptyTable";
 import Paginator from "../../../components/Paginator";
 
-import { ProvidersType } from "../../../interfaces/Admin/ProvidersType";
+import { IProviders } from "../../../interfaces/Admin/ProvidersType";
 import { useFetchPaginated } from '../../../hooks/useFetchPaginated';
 
 const ProvidersTable = ({ search, update }) => {
 	const { data: providers, loading }: { 
-		data: Array<ProvidersType>, 
+		data: Array<IProviders>, 
 		loading: boolean
 	} = useFetchPaginated(search, update, ProvidersService.getProviders);
 

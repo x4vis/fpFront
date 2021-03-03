@@ -1,41 +1,41 @@
 @import '../../styles/functions.scss';
 
 .layout {
-    min-height: 100vh;
+	min-height: 100vh;
 
-    .sider {
-        box-shadow: .2rem 0 1.2rem -.1rem rgba(40, 40, 40, 0.75);
-        z-index: 2;
+	.sider {
+		box-shadow: .2rem 0 1.2rem -.1rem rgba(40, 40, 40, 0.75);
+		z-index: 2;
 
-        .menu {
-            height: 100%;
-            border-right: 0;
-            background-color: getColor('blue');
-        }
-    }
-    
+		.menu {
+			height: 100%;
+			border-right: 0;
+			background-color: getColor('blue');
+		}
+	}
 
-    .header {
-        position: fixed;
-        width: 100%;
-        padding: 0;
-        background-color: getColor('blue');
-        box-shadow: -.1rem .4rem 1rem -.5rem rgba(40, 40, 40, 0.75);
-        z-index: 1;
 
-        .trigger {
-            max-height: 100%;
-            margin-left: 2rem;
+	.header {
+		position: fixed;
+		width: 100%;
+		padding: 0;
+		background-color: getColor('blue');
+		box-shadow: -.1rem .4rem 1rem -.5rem rgba(40, 40, 40, 0.75);
+		z-index: 1;
 
-            i {
-                color: white;
-            }
-        }
-    }
+		.trigger {
+			max-height: 100%;
+			margin-left: 2rem;
 
-    .content {
-        margin: 6rem 0 1rem 0;
-        padding: 2.4rem 2.4rem 1rem 2.4rem;
-        min-height: 280;
-    }
+			i {
+				color: white;
+			}
+		}
+	}
+
+	.content {
+		margin: 6rem 0 1rem 0;
+		padding: 2.4rem 2.4rem 1rem 2.4rem;
+		min-height: 280;
+	}
 }

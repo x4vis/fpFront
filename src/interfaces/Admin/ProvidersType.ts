@@ -1,4 +1,4 @@
-export interface ProvidersType {
+export interface IProviders {
     id?: number,
     personType?: string,
     name?: string,

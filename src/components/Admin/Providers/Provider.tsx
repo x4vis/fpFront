@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from 'antd';
-import { ProvidersType } from "../../../interfaces/Admin/ProvidersType";
+import { IProviders } from "../../../interfaces/Admin/ProvidersType";
 
 import Proptypes from "prop-types";
 
-const Provider: React.FC<{ prov: ProvidersType }> = ({ prov }) => {
+const Provider: React.FC<{ prov: IProviders }> = ({ prov }) => {
 	return (
 		<tr>
 			<td>{prov.name}</td>
