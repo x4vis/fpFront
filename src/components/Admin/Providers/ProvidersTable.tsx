@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import ProvidersService from "../../../services/Admin/ProvidersService";
 import Proptypes from "prop-types";
 
@@ -7,27 +7,13 @@ import EmptyTable from "../../../components/EmptyTable";
 import Paginator from "../../../components/Paginator";
 
 import { ProvidersType } from "../../../interfaces/Admin/ProvidersType";
-import usePagination from '../../../hooks/Admin/usePagination';
+import { useFetchPaginated } from '../../../hooks/useFetchPaginated';
 
 const ProvidersTable = ({ search, update }) => {
-	const [providers, setProviders] = useState<Array<ProvidersType>>([]);
-	const { pagination, setTotalRecords } = usePagination();
-	const { page, resourceQty } = pagination;
-	
-	useEffect(() => {
-		const getProviders = async () => {
-			try {
-				const providers = await ProvidersService
-				.getProviders(true, page, search, resourceQty);
-
-				setTotalRecords(providers.headers.totalrecords);
-				setProviders(providers.data);
-			} catch (error) {
-				console.log('err', error);
-			}
-		}
-		getProviders();
-	}, [search, resourceQty, page, update])
+	const { data: providers, loading }: { 
+		data: Array<ProvidersType>, 
+		loading: boolean
+	} = useFetchPaginated(search, update, ProvidersService.getProviders);
 
 	return (
 		<>
@@ -51,7 +37,7 @@ const ProvidersTable = ({ search, update }) => {
 							))
 						}
 						{
-							providers.length === 0 &&
+							(providers.length === 0 && !loading) &&
 							<EmptyTable colspan={6} />
 						}
 					</tbody>
@@ -60,7 +46,7 @@ const ProvidersTable = ({ search, update }) => {
 
 			<div className="row justify-content-end">
 				<div className="col-12 col-md-8">
-					<Paginator pagination={pagination} />
+					<Paginator />
 				</div>
 			</div>
 		</>

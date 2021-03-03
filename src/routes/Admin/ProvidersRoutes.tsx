@@ -6,13 +6,13 @@ const CreateProvider = lazy(() => import('../../views/Admin/Providers/CreateProv
 const EditProvider = lazy(() => import('../../views/Admin/Providers/EditProvider'));
 
 const ProvidersRoutes = () => {
-    return (
-        <>
-            <Route exact path="/admin/proveedores" component={ProvidersList}/>
-            <Route exact path="/admin/proveedores/crear" component={CreateProvider}/>
-            <Route exact path="/admin/proveedores/editar" component={EditProvider}/>
-        </>
-    )
+	return (
+		<>
+			<Route exact path="/admin/proveedores" component={ProvidersList} />
+			<Route exact path="/admin/proveedores/crear" component={CreateProvider} />
+			<Route exact path="/admin/proveedores/editar" component={EditProvider} />
+		</>
+	)
 }
 
 export default ProvidersRoutes;

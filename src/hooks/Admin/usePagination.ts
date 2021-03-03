@@ -1,31 +1,29 @@
 import { useState } from 'react';
-import { PaginationType } from '../../interfaces/Generic/PaginationType';
+import { IPagination } from '../../interfaces/GenericTypes';
 
 const usePagination = () => {
-  const [pagination, setPagination] = useState<PaginationType>({
+  const [pagination, setPagination] = useState<IPagination>({
     totalRecords: 0,
 		resourceQty: 10,
 		page: 1
   });
 
-  const setTotalRecords = (totalRecords) => {
-    totalRecords = Number(totalRecords);
+  const setTotalRecords = (totalRecords: string) => {
+    const records: number = Number(totalRecords);
 
     setPagination({
       ...pagination,
-      totalRecords
+      totalRecords: records
     })
   }
 
-  const setPage = (page) => {
+  const setPage = (page: number) => {
     setPagination({
       ...pagination,
       page
     })
   }
 
-  console.log('pagination :>> ', pagination);
-  
   return { pagination, setTotalRecords, setPage };
 }
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import { Pagination } from 'antd';
-import Proptypes from "prop-types";
 import usePagination from '../hooks/Admin/usePagination';
 
-const Paginator = ({ pagination }) => {
-	const { totalRecords, resourceQty, page } = pagination;
-	const { setPage } = usePagination();
+const Paginator = () => {
+	const { pagination, setPage } = usePagination();
+	const { totalRecords, resourceQty, page } = pagination;  
 
 	if (totalRecords === 0) {
 		return null;
@@ -22,9 +21,5 @@ const Paginator = ({ pagination }) => {
 		/>
 	)
 };
-
-Paginator.propTypes = {
-	pagination: Proptypes.object.isRequired
-}
 
 export default React.memo(Paginator);

@@ -5,24 +5,24 @@ import UsersRoutes from './UsersRoutes'
 
 const AdminRoutes = () => {
   return (
-      <>
-        {/* USUARIOS */}
-        <UsersRoutes />
+    <>
+      {/* USUARIOS */}
+      <UsersRoutes />
 
-        {/* PROVEEDORES */}
-        <ProvidersRoutes />
+      {/* PROVEEDORES */}
+      <ProvidersRoutes />
 
-        {/* CATEGORIAS */}
+      {/* CATEGORIAS */}
 
-        {/* SUBCATEGORIAS */}
+      {/* SUBCATEGORIAS */}
 
-        {/* UNIDADES DE MEDIDA */}
+      {/* UNIDADES DE MEDIDA */}
 
-        {/* DESCUENTOS */}
+      {/* DESCUENTOS */}
 
-        {/* PRODUCTOS */}
-        
-      </>
+      {/* PRODUCTOS */}
+
+    </>
   );
 }
 

@@ -1,65 +1,69 @@
 @import './styles/functions.scss';
 
 li {
-    color: white;
+	color: white;
 
-    &:hover {
-        color: white;
-    }    
+	&:hover {
+		color: white;
+	}
 }
 
-.ant-menu-submenu-selected, .ant-menu-item-selected {
-    color: white !important;
-    font-weight: bold;
-    background-color: getColor('blue-light') !important;
+.ant-menu-submenu-selected,
+.ant-menu-item-selected {
+	color: white !important;
+	font-weight: bold;
+	background-color: getColor('blue-light') !important;
 }
 
-.ant-menu-item-active, .ant-menu-item {
-    color: white !important;
+.ant-menu-item-active,
+.ant-menu-item {
+	color: white !important;
 
-    span > a {
-        color: white !important;
-    }
+	span>a {
+		color: white !important;
+	}
 
-    &:hover {
-        color: white !important;
-        font-weight: bold;
-    }
+	&:hover {
+		color: white !important;
+		font-weight: bold;
+	}
 }
 
-.ant-menu-sub.ant-menu-inline  {
-    background-color: getColor('blue-light') !important;
+.ant-menu-sub.ant-menu-inline {
+	background-color: getColor('blue-light') !important;
 }
 
 .ant-layout-sider {
-    background-color: getColor('blue') !important;
+	background-color: getColor('blue') !important;
 }
 
 .ant-form-vertical .ant-form-item-label {
-    padding: 0 !important;
+	padding: 0 !important;
 }
 
 .ant-select-selector {
-    border-radius: 1rem !important;
+	border-radius: 1rem !important;
 }
 
 .ant-menu-submenu-title {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .ant-pagination-total-text {
-    color: rgba(0, 0, 0, 0.85)!important;
+	color: rgba(0, 0, 0, 0.85) !important;
 }
 
-.ant-pagination-item, .ant-pagination-item-1.ant-pagination-item-active {
-    a {
-        color: getColor('blue') !important;
-    }
+.ant-pagination-item,
+.ant-pagination-item-1.ant-pagination-item-active {
+	a {
+		color: getColor('blue') !important;
+	}
 }
 
-.ant-pagination-prev button, .ant-pagination-next button {
-    padding-bottom: 1rem !important;
+.ant-pagination-prev button,
+.ant-pagination-next button {
+	padding-bottom: 1rem !important;
 }
 
 // .ant-pagination-next .ant-pagination-item-link .anticon-rigth {
