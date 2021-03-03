@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { IPagination } from '../../interfaces/GenericTypes';
 
 const usePagination = () => {
@@ -8,14 +8,14 @@ const usePagination = () => {
 		page: 1
   });
 
-  const setTotalRecords = (totalRecords: string) => {
+  const setTotalRecords =  useMemo(() => (totalRecords: string) => {
     const records: number = Number(totalRecords);
-
     setPagination({
-      ...pagination,
+      resourceQty: 10,
+      page: 1,
       totalRecords: records
     })
-  }
+  }, [])
 
   const setPage = (page: number) => {
     setPagination({

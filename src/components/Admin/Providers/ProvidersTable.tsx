@@ -15,6 +15,9 @@ const ProvidersTable = ({ search, update }) => {
 		loading: boolean
 	} = useFetchPaginated(search, update, ProvidersService.getProviders);
 
+
+	console.log('providers', providers);
+
 	return (
 		<>
 			<div className="table-responsive mt-5">
@@ -60,4 +63,4 @@ ProvidersTable.propTypes = {
 	update: Proptypes.bool.isRequired,
 }
 
-export default React.memo(ProvidersTable);
+export default ProvidersTable;

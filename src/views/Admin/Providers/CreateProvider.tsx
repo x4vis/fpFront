@@ -22,10 +22,9 @@ const CreateProvider = () => {
 		try {
 			const created = await ProvidersService.createProvider(form.getFieldsValue());
 			notification.success({
-				message: addedResource('proveedor')
+				message: addedResource(`proveedor ${created.data.name}`)
 			});
 			form.resetFields();
-			console.log('created', created)
 		} catch (error) {
 			console.log('err', error);
 		}
@@ -52,7 +51,7 @@ const CreateProvider = () => {
 								name="name"
 								label="Nombre"
 								hasFeedback
-								rules={[required('nombre'), maxLenght(255), pattern(PatternText)]}>
+								rules={[required('nombre'), maxLenght(255)]}>
 								<Input className="border-r"
 									placeholder="Ingresa nombre"
 									prefix={<i className="fa fa-user"></i>}
