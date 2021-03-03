@@ -17,11 +17,11 @@ const ProvidersTable = ({ search, update }) => {
 	useEffect(() => {
 		const getProviders = async () => {
 			try {
-				const proveedores = await ProvidersService
+				const providers = await ProvidersService
 				.getProviders(true, page, search, resourceQty);
 
-				setTotalRecords(proveedores.headers.totalrecords);
-				setProviders(proveedores.data);
+				setTotalRecords(providers.headers.totalrecords);
+				setProviders(providers.data);
 			} catch (error) {
 				console.log('err', error);
 			}
