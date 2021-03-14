@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import { notification } from 'antd';
 
 /* AUTH */
-const Login = lazy(() => import('./views/Auth/Login/Login'));
-const PasswordRecover = lazy(() => import('./views/Auth/PasswordRecover/PasswordRecover'));
-const PasswordRestore = lazy(() => import('./views/Auth/PasswordRestore/PasswordRestore'));
+const Auth = lazy(() => import('./routes/Auth/AuthRoutes'));
+
+/* MAIN */
 const MainPage = lazy(() => import('./views/MainPage/MainPage'))
 
 /* ADMIN */
@@ -24,9 +24,7 @@ function App() {
         <Switch>
           <Redirect exact from='/' to='/login' />
           {/* AUTH */}
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/recuperar-contrasena" component={PasswordRecover} />
-          <Route exact path="/restaurar-contrasena/:token" component={PasswordRestore} />
+          <Route path="/auth" component={Auth}/>
 
           {/* PANTALLA PRINCIPAL */}
           <Route exact path="/pantalla-principal" component={MainPage} />

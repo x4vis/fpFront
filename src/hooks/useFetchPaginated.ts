@@ -25,15 +25,12 @@ export const useFetchPaginated = (
 
   useEffect(() => {
 
-    console.log('1');
     setState({ data: [], loading: true, error: ''});
 
     const getData = async() => {
-      console.log('2');
       try {
         const dataApi: IDataApi = await callBack(true, page, search, resourceQty);
 
-        console.log('3');
         if (isMounted.current) {
           setTotalRecords(dataApi.headers.totalrecords);
           setState({
