@@ -53,7 +53,7 @@ const Login = () => {
 
 						<div className="row align-items-center flex-column-reverse flex-sm-row">
 							<div className="col-12 col-sm-6 text-center">
-								<Link to="/recuperar-contrasena">¿Olvidaste tu contraseña?</Link>
+								<Link to="/auth/recuperar-contrasena">¿Olvidaste tu contraseña?</Link>
 							</div>
 							<div className="col-12 col-sm-6">
 								<Form.Item className="mt-3 mt-sm-5">

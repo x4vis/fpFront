@@ -22,7 +22,7 @@ function App() {
     <Router>
       <Suspense fallback={ '' }>
         <Switch>
-          <Redirect exact from='/' to='/login' />
+          <Redirect exact from='/' to='/auth/login' />
           {/* AUTH */}
           <Route path="/auth" component={Auth}/>
 

@@ -54,7 +54,7 @@ const PasswordRestore = () => {
 
 						<div className="row align-items-center flex-column-reverse flex-sm-row">
 							<div className="col-12 col-sm-6 text-center">
-								<Link to="/login">
+								<Link to="/auth/login">
 									<i className="fa fa-arrow-left mr-3"></i>
                   Regresar al acceso
                 </Link>
