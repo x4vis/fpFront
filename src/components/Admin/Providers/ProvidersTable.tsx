@@ -8,15 +8,14 @@ import Paginator from "../../../components/Paginator";
 
 import { IProviders } from "../../../interfaces/Admin/ProvidersType";
 import { useFetchPaginated } from '../../../hooks/useFetchPaginated';
+import { IFetchPaginated } from '../../../interfaces/GenericTypes';
 
 const ProvidersTable = ({ search, update }) => {
-	const { data: providers, loading }: { 
-		data: Array<IProviders>, 
-		loading: boolean
-	} = useFetchPaginated(search, update, ProvidersService.getProviders);
+	const { data: providers, loading }: IFetchPaginated<IProviders> = 
+	useFetchPaginated(search, update, ProvidersService.getProviders);
 
-
-	console.log('providers', providers);
+	console.log('me renderizo');
+	
 
 	return (
 		<>
